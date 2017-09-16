@@ -1,0 +1,202 @@
+!SESSION 2017-09-08 17:15:11.014 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-09-08 17:16:20.999
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.apache.log4j 2 0 2017-09-08 17:16:32.176
+!MESSAGE org.eclipse.aether.internal.impl.DefaultRepositoryEventDispatcher  - Failed to dispatch repository event to org.eclipse.m2e.core.internal.embedder.EclipseRepositoryListener: null
+
+
+!ENTRY org.apache.log4j 2 0 2017-09-08 17:16:33.202
+!MESSAGE org.eclipse.aether.internal.impl.DefaultRepositoryEventDispatcher  - Failed to dispatch repository event to org.eclipse.m2e.core.internal.embedder.EclipseRepositoryListener: null
+
+
+!ENTRY org.apache.log4j 2 0 2017-09-08 17:16:34.557
+!MESSAGE org.eclipse.aether.internal.impl.DefaultRepositoryEventDispatcher  - Failed to dispatch repository event to org.eclipse.m2e.core.internal.embedder.EclipseRepositoryListener: null
+
+!SESSION 2017-09-08 17:36:05.483 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-09-08 17:36:13.763
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2017-09-08 17:39:06.585 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.dsl.product -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.dsl.product -data file:/C:/Users/Alex/Desktop/422Project/ -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.ui 2 0 2017-09-08 17:39:09.613
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2017-09-08 17:39:09.613
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.ui 2 0 2017-09-08 17:39:09.872
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2017-09-08 17:39:09.872
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-09-08 17:39:14.897
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2017-09-11 17:14:28.684 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.ui 2 0 2017-09-11 17:14:41.059
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2017-09-11 17:14:41.059
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.ui 2 0 2017-09-11 17:14:41.314
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2017-09-11 17:14:41.314
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-09-11 17:14:49.038
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2017-09-13 16:14:29.250 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.ui 2 0 2017-09-13 16:14:47.106
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2017-09-13 16:14:47.106
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.ui 2 0 2017-09-13 16:14:47.442
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2017-09-13 16:14:47.442
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-09-13 16:14:53.713
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Alex'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY net.sf.eclipsecs.core 4 0 2017-09-13 16:25:15.786
+!MESSAGE Checkstyle-Plugin: cannot initialize module TreeWalker - Unable to instantiate 'MethodLimit' class, it is also not possible to instantiate it as com.puppycrawl.tools.checkstyle.checks.annotationMethodLimit, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimit, com.puppycrawl.tools.checkstyle.checks.codingMethodLimit, com.puppycrawl.tools.checkstyle.checks.designMethodLimit, com.puppycrawl.tools.checkstyle.checks.headerMethodLimit, com.puppycrawl.tools.checkstyle.checks.importsMethodLimit, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimit, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimit, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimit, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimit, com.puppycrawl.tools.checkstyle.checks.namingMethodLimit, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimit, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimit, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimit, com.puppycrawl.tools.checkstyle.checksMethodLimit, com.puppycrawl.tools.checkstyle.filefiltersMethodLimit, com.puppycrawl.tools.checkstyle.filtersMethodLimit, com.puppycrawl.tools.checkstyle.MethodLimit, MethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.annotationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.codingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.designMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.headerMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.importsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.namingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimitCheck, com.puppycrawl.tools.checkstyle.checksMethodLimitCheck, com.puppycrawl.tools.checkstyle.filefiltersMethodLimitCheck, com.puppycrawl.tools.checkstyle.filtersMethodLimitCheck, com.puppycrawl.tools.checkstyle.MethodLimitCheck. Please recheck that class name is specified as canonical name or read how to configure short name usage http://checkstyle.sourceforge.net/config.html#Packages. Please also recheck that provided ClassLoader to Checker is configured correctly.
+!STACK 0
+com.puppycrawl.tools.checkstyle.api.CheckstyleException: cannot initialize module TreeWalker - Unable to instantiate 'MethodLimit' class, it is also not possible to instantiate it as com.puppycrawl.tools.checkstyle.checks.annotationMethodLimit, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimit, com.puppycrawl.tools.checkstyle.checks.codingMethodLimit, com.puppycrawl.tools.checkstyle.checks.designMethodLimit, com.puppycrawl.tools.checkstyle.checks.headerMethodLimit, com.puppycrawl.tools.checkstyle.checks.importsMethodLimit, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimit, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimit, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimit, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimit, com.puppycrawl.tools.checkstyle.checks.namingMethodLimit, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimit, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimit, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimit, com.puppycrawl.tools.checkstyle.checksMethodLimit, com.puppycrawl.tools.checkstyle.filefiltersMethodLimit, com.puppycrawl.tools.checkstyle.filtersMethodLimit, com.puppycrawl.tools.checkstyle.MethodLimit, MethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.annotationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.codingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.designMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.headerMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.importsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.namingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimitCheck, com.puppycrawl.tools.checkstyle.checksMethodLimitCheck, com.puppycrawl.tools.checkstyle.filefiltersMethodLimitCheck, com.puppycrawl.tools.checkstyle.filtersMethodLimitCheck, com.puppycrawl.tools.checkstyle.MethodLimitCheck. Please recheck that class name is specified as canonical name or read how to configure short name usage http://checkstyle.sourceforge.net/config.html#Packages. Please also recheck that provided ClassLoader to Checker is configured correctly.
+	at com.puppycrawl.tools.checkstyle.Checker.setupChild(Checker.java:457)
+	at com.puppycrawl.tools.checkstyle.api.AutomaticBean.configure(AutomaticBean.java:171)
+	at net.sf.eclipsecs.core.builder.CheckerFactory.createCheckerInternal(CheckerFactory.java:290)
+	at net.sf.eclipsecs.core.builder.CheckerFactory.createChecker(CheckerFactory.java:128)
+	at net.sf.eclipsecs.core.builder.Auditor.runAudit(Auditor.java:141)
+	at net.sf.eclipsecs.core.builder.CheckstyleBuilder.handleBuildSelection(CheckstyleBuilder.java:301)
+	at net.sf.eclipsecs.core.builder.CheckstyleBuilder.build(CheckstyleBuilder.java:172)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: com.puppycrawl.tools.checkstyle.api.CheckstyleException: Unable to instantiate 'MethodLimit' class, it is also not possible to instantiate it as com.puppycrawl.tools.checkstyle.checks.annotationMethodLimit, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimit, com.puppycrawl.tools.checkstyle.checks.codingMethodLimit, com.puppycrawl.tools.checkstyle.checks.designMethodLimit, com.puppycrawl.tools.checkstyle.checks.headerMethodLimit, com.puppycrawl.tools.checkstyle.checks.importsMethodLimit, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimit, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimit, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimit, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimit, com.puppycrawl.tools.checkstyle.checks.namingMethodLimit, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimit, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimit, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimit, com.puppycrawl.tools.checkstyle.checksMethodLimit, com.puppycrawl.tools.checkstyle.filefiltersMethodLimit, com.puppycrawl.tools.checkstyle.filtersMethodLimit, com.puppycrawl.tools.checkstyle.MethodLimit, MethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.annotationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.codingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.designMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.headerMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.importsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.namingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimitCheck, com.puppycrawl.tools.checkstyle.checksMethodLimitCheck, com.puppycrawl.tools.checkstyle.filefiltersMethodLimitCheck, com.puppycrawl.tools.checkstyle.filtersMethodLimitCheck, com.puppycrawl.tools.checkstyle.MethodLimitCheck. Please recheck that class name is specified as canonical name or read how to configure short name usage http://checkstyle.sourceforge.net/config.html#Packages. Please also recheck that provided ClassLoader to Checker is configured correctly.
+	at com.puppycrawl.tools.checkstyle.PackageObjectFactory.createModule(PackageObjectFactory.java:184)
+	at com.puppycrawl.tools.checkstyle.TreeWalker.setupChild(TreeWalker.java:153)
+	at com.puppycrawl.tools.checkstyle.api.AutomaticBean.configure(AutomaticBean.java:171)
+	at com.puppycrawl.tools.checkstyle.Checker.setupChild(Checker.java:452)
+	... 18 more
+
+!ENTRY net.sf.eclipsecs.core 4 0 2017-09-13 16:25:39.710
+!MESSAGE Checkstyle-Plugin: cannot initialize module TreeWalker - Unable to instantiate 'MethodLimit' class, it is also not possible to instantiate it as com.puppycrawl.tools.checkstyle.checks.annotationMethodLimit, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimit, com.puppycrawl.tools.checkstyle.checks.codingMethodLimit, com.puppycrawl.tools.checkstyle.checks.designMethodLimit, com.puppycrawl.tools.checkstyle.checks.headerMethodLimit, com.puppycrawl.tools.checkstyle.checks.importsMethodLimit, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimit, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimit, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimit, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimit, com.puppycrawl.tools.checkstyle.checks.namingMethodLimit, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimit, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimit, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimit, com.puppycrawl.tools.checkstyle.checksMethodLimit, com.puppycrawl.tools.checkstyle.filefiltersMethodLimit, com.puppycrawl.tools.checkstyle.filtersMethodLimit, com.puppycrawl.tools.checkstyle.MethodLimit, MethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.annotationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.codingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.designMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.headerMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.importsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.namingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimitCheck, com.puppycrawl.tools.checkstyle.checksMethodLimitCheck, com.puppycrawl.tools.checkstyle.filefiltersMethodLimitCheck, com.puppycrawl.tools.checkstyle.filtersMethodLimitCheck, com.puppycrawl.tools.checkstyle.MethodLimitCheck. Please recheck that class name is specified as canonical name or read how to configure short name usage http://checkstyle.sourceforge.net/config.html#Packages. Please also recheck that provided ClassLoader to Checker is configured correctly.
+!STACK 0
+com.puppycrawl.tools.checkstyle.api.CheckstyleException: cannot initialize module TreeWalker - Unable to instantiate 'MethodLimit' class, it is also not possible to instantiate it as com.puppycrawl.tools.checkstyle.checks.annotationMethodLimit, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimit, com.puppycrawl.tools.checkstyle.checks.codingMethodLimit, com.puppycrawl.tools.checkstyle.checks.designMethodLimit, com.puppycrawl.tools.checkstyle.checks.headerMethodLimit, com.puppycrawl.tools.checkstyle.checks.importsMethodLimit, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimit, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimit, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimit, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimit, com.puppycrawl.tools.checkstyle.checks.namingMethodLimit, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimit, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimit, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimit, com.puppycrawl.tools.checkstyle.checksMethodLimit, com.puppycrawl.tools.checkstyle.filefiltersMethodLimit, com.puppycrawl.tools.checkstyle.filtersMethodLimit, com.puppycrawl.tools.checkstyle.MethodLimit, MethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.annotationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.codingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.designMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.headerMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.importsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.namingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimitCheck, com.puppycrawl.tools.checkstyle.checksMethodLimitCheck, com.puppycrawl.tools.checkstyle.filefiltersMethodLimitCheck, com.puppycrawl.tools.checkstyle.filtersMethodLimitCheck, com.puppycrawl.tools.checkstyle.MethodLimitCheck. Please recheck that class name is specified as canonical name or read how to configure short name usage http://checkstyle.sourceforge.net/config.html#Packages. Please also recheck that provided ClassLoader to Checker is configured correctly.
+	at com.puppycrawl.tools.checkstyle.Checker.setupChild(Checker.java:457)
+	at com.puppycrawl.tools.checkstyle.api.AutomaticBean.configure(AutomaticBean.java:171)
+	at net.sf.eclipsecs.core.builder.CheckerFactory.createCheckerInternal(CheckerFactory.java:290)
+	at net.sf.eclipsecs.core.builder.CheckerFactory.createChecker(CheckerFactory.java:128)
+	at net.sf.eclipsecs.core.builder.Auditor.runAudit(Auditor.java:141)
+	at net.sf.eclipsecs.core.builder.CheckstyleBuilder.handleBuildSelection(CheckstyleBuilder.java:301)
+	at net.sf.eclipsecs.core.builder.CheckstyleBuilder.build(CheckstyleBuilder.java:172)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: com.puppycrawl.tools.checkstyle.api.CheckstyleException: Unable to instantiate 'MethodLimit' class, it is also not possible to instantiate it as com.puppycrawl.tools.checkstyle.checks.annotationMethodLimit, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimit, com.puppycrawl.tools.checkstyle.checks.codingMethodLimit, com.puppycrawl.tools.checkstyle.checks.designMethodLimit, com.puppycrawl.tools.checkstyle.checks.headerMethodLimit, com.puppycrawl.tools.checkstyle.checks.importsMethodLimit, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimit, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimit, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimit, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimit, com.puppycrawl.tools.checkstyle.checks.namingMethodLimit, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimit, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimit, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimit, com.puppycrawl.tools.checkstyle.checksMethodLimit, com.puppycrawl.tools.checkstyle.filefiltersMethodLimit, com.puppycrawl.tools.checkstyle.filtersMethodLimit, com.puppycrawl.tools.checkstyle.MethodLimit, MethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.annotationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.codingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.designMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.headerMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.importsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.namingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimitCheck, com.puppycrawl.tools.checkstyle.checksMethodLimitCheck, com.puppycrawl.tools.checkstyle.filefiltersMethodLimitCheck, com.puppycrawl.tools.checkstyle.filtersMethodLimitCheck, com.puppycrawl.tools.checkstyle.MethodLimitCheck. Please recheck that class name is specified as canonical name or read how to configure short name usage http://checkstyle.sourceforge.net/config.html#Packages. Please also recheck that provided ClassLoader to Checker is configured correctly.
+	at com.puppycrawl.tools.checkstyle.PackageObjectFactory.createModule(PackageObjectFactory.java:184)
+	at com.puppycrawl.tools.checkstyle.TreeWalker.setupChild(TreeWalker.java:153)
+	at com.puppycrawl.tools.checkstyle.api.AutomaticBean.configure(AutomaticBean.java:171)
+	at com.puppycrawl.tools.checkstyle.Checker.setupChild(Checker.java:452)
+	... 18 more
+
+!ENTRY net.sf.eclipsecs.core 4 0 2017-09-13 16:25:44.829
+!MESSAGE Checkstyle-Plugin: cannot initialize module TreeWalker - Unable to instantiate 'MethodLimit' class, it is also not possible to instantiate it as com.puppycrawl.tools.checkstyle.checks.annotationMethodLimit, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimit, com.puppycrawl.tools.checkstyle.checks.codingMethodLimit, com.puppycrawl.tools.checkstyle.checks.designMethodLimit, com.puppycrawl.tools.checkstyle.checks.headerMethodLimit, com.puppycrawl.tools.checkstyle.checks.importsMethodLimit, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimit, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimit, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimit, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimit, com.puppycrawl.tools.checkstyle.checks.namingMethodLimit, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimit, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimit, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimit, com.puppycrawl.tools.checkstyle.checksMethodLimit, com.puppycrawl.tools.checkstyle.filefiltersMethodLimit, com.puppycrawl.tools.checkstyle.filtersMethodLimit, com.puppycrawl.tools.checkstyle.MethodLimit, MethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.annotationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.codingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.designMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.headerMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.importsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.namingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimitCheck, com.puppycrawl.tools.checkstyle.checksMethodLimitCheck, com.puppycrawl.tools.checkstyle.filefiltersMethodLimitCheck, com.puppycrawl.tools.checkstyle.filtersMethodLimitCheck, com.puppycrawl.tools.checkstyle.MethodLimitCheck. Please recheck that class name is specified as canonical name or read how to configure short name usage http://checkstyle.sourceforge.net/config.html#Packages. Please also recheck that provided ClassLoader to Checker is configured correctly.
+!STACK 0
+com.puppycrawl.tools.checkstyle.api.CheckstyleException: cannot initialize module TreeWalker - Unable to instantiate 'MethodLimit' class, it is also not possible to instantiate it as com.puppycrawl.tools.checkstyle.checks.annotationMethodLimit, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimit, com.puppycrawl.tools.checkstyle.checks.codingMethodLimit, com.puppycrawl.tools.checkstyle.checks.designMethodLimit, com.puppycrawl.tools.checkstyle.checks.headerMethodLimit, com.puppycrawl.tools.checkstyle.checks.importsMethodLimit, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimit, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimit, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimit, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimit, com.puppycrawl.tools.checkstyle.checks.namingMethodLimit, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimit, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimit, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimit, com.puppycrawl.tools.checkstyle.checksMethodLimit, com.puppycrawl.tools.checkstyle.filefiltersMethodLimit, com.puppycrawl.tools.checkstyle.filtersMethodLimit, com.puppycrawl.tools.checkstyle.MethodLimit, MethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.annotationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.codingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.designMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.headerMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.importsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.namingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimitCheck, com.puppycrawl.tools.checkstyle.checksMethodLimitCheck, com.puppycrawl.tools.checkstyle.filefiltersMethodLimitCheck, com.puppycrawl.tools.checkstyle.filtersMethodLimitCheck, com.puppycrawl.tools.checkstyle.MethodLimitCheck. Please recheck that class name is specified as canonical name or read how to configure short name usage http://checkstyle.sourceforge.net/config.html#Packages. Please also recheck that provided ClassLoader to Checker is configured correctly.
+	at com.puppycrawl.tools.checkstyle.Checker.setupChild(Checker.java:457)
+	at com.puppycrawl.tools.checkstyle.api.AutomaticBean.configure(AutomaticBean.java:171)
+	at net.sf.eclipsecs.core.builder.CheckerFactory.createCheckerInternal(CheckerFactory.java:290)
+	at net.sf.eclipsecs.core.builder.CheckerFactory.createChecker(CheckerFactory.java:128)
+	at net.sf.eclipsecs.core.builder.Auditor.runAudit(Auditor.java:141)
+	at net.sf.eclipsecs.core.builder.CheckstyleBuilder.handleBuildSelection(CheckstyleBuilder.java:301)
+	at net.sf.eclipsecs.core.builder.CheckstyleBuilder.build(CheckstyleBuilder.java:172)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:734)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:205)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:245)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:300)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:303)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:359)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:382)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: com.puppycrawl.tools.checkstyle.api.CheckstyleException: Unable to instantiate 'MethodLimit' class, it is also not possible to instantiate it as com.puppycrawl.tools.checkstyle.checks.annotationMethodLimit, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimit, com.puppycrawl.tools.checkstyle.checks.codingMethodLimit, com.puppycrawl.tools.checkstyle.checks.designMethodLimit, com.puppycrawl.tools.checkstyle.checks.headerMethodLimit, com.puppycrawl.tools.checkstyle.checks.importsMethodLimit, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimit, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimit, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimit, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimit, com.puppycrawl.tools.checkstyle.checks.namingMethodLimit, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimit, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimit, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimit, com.puppycrawl.tools.checkstyle.checksMethodLimit, com.puppycrawl.tools.checkstyle.filefiltersMethodLimit, com.puppycrawl.tools.checkstyle.filtersMethodLimit, com.puppycrawl.tools.checkstyle.MethodLimit, MethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.annotationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.blocksMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.codingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.designMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.headerMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.importsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.indentationMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.javadocMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.metricsMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.modifierMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.namingMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.regexpMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.sizesMethodLimitCheck, com.puppycrawl.tools.checkstyle.checks.whitespaceMethodLimitCheck, com.puppycrawl.tools.checkstyle.checksMethodLimitCheck, com.puppycrawl.tools.checkstyle.filefiltersMethodLimitCheck, com.puppycrawl.tools.checkstyle.filtersMethodLimitCheck, com.puppycrawl.tools.checkstyle.MethodLimitCheck. Please recheck that class name is specified as canonical name or read how to configure short name usage http://checkstyle.sourceforge.net/config.html#Packages. Please also recheck that provided ClassLoader to Checker is configured correctly.
+	at com.puppycrawl.tools.checkstyle.PackageObjectFactory.createModule(PackageObjectFactory.java:184)
+	at com.puppycrawl.tools.checkstyle.TreeWalker.setupChild(TreeWalker.java:153)
+	at com.puppycrawl.tools.checkstyle.api.AutomaticBean.configure(AutomaticBean.java:171)
+	at com.puppycrawl.tools.checkstyle.Checker.setupChild(Checker.java:452)
+	... 18 more
