@@ -5,6 +5,10 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Alex\Desktop\422Project\net.sf.eclipsecs.sample"/>
+			<item value="C:\Users\Alex\Desktop\422Project\eclipse-cs-git"/>
+			<item value="C:\Users\Alex\Desktop\422Project\eclipse-project\net.sf.eclipsecs.sample"/>
+			<item value="C:\Users\Alex\Desktop\422Project\eclipse-project"/>
 			<item value="C:\Users\Alex\Desktop\422Project\eclipse-cs-git\net.sf.eclipsecs.sample"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
