@@ -46,15 +46,14 @@ public class MethodLimitCheck extends AbstractCheck {
     	List<Integer> operandList = new ArrayList<Integer>();
     	operandList = Arrays.asList(TokenTypes.IDENT,TokenTypes.STRING_LITERAL,
     								TokenTypes.CHAR_LITERAL, TokenTypes.LITERAL_TRUE,TokenTypes.LITERAL_FALSE,
-    								TokenTypes.LITERAL_NULL,TokenTypes.NUM_FLOAT,TokenTypes.NUM_INT,
-    								TokenTypes.NUM_DOUBLE, TokenTypes.NUM_LONG);
+    								TokenTypes.LITERAL_NULL,TokenTypes.NUM_FLOAT,TokenTypes.NUM_INT,TokenTypes.NUM_DOUBLE,
+    								TokenTypes.NUM_LONG);
     	
     	List <DetailAST> totalNotUniqueOperator = new ArrayList<DetailAST>(); 
     	for(int i = 0; i < operatorList.size(); i++)
     	{
     			totalNotUniqueOperator.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operatorList.get(i),false));
     	}
-    	
     	List <DetailAST> totalNotUniqueOperand = new ArrayList<DetailAST>(); 
     	for(int i = 0; i < operandList.size(); i++)
     	{
@@ -62,21 +61,18 @@ public class MethodLimitCheck extends AbstractCheck {
     	}
     	log(aAST.getLineNo(), "methodlimit", "Halstead Length: " + (totalNotUniqueOperator.size() + totalNotUniqueOperand.size()));
     
-    	// Number of operators [3]
     	List <DetailAST> totalUniqueOperator = new ArrayList<DetailAST>(); 
     	for(int i = 0; i < operatorList.size(); i++)
     	{
     			totalUniqueOperator.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operatorList.get(i),true));
     	}
     	
-    	// Number of operands [3]
     	List <DetailAST> totalUniqueOperand = new ArrayList<DetailAST>(); 
     	for(int i = 0; i < operandList.size(); i++)
     	{
     			totalUniqueOperand.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operandList.get(i),true));
     	}
     	
-    	// Halstead Vocabulary is the sum of the number of unique operators and unique operands [1,2]
     	log(aAST.getLineNo(), "methodlimit", "Halstead Vocabulary: " + (totalUniqueOperator.size() + totalUniqueOperand.size()));
     	
     	log(aAST.getLineNo(), "methodlimit", "Total Number of operators: " + totalNotUniqueOperator.size());
@@ -156,15 +152,13 @@ public class MethodLimitCheck extends AbstractCheck {
     }
 
 	@Override
-	public int[] getAcceptableTokens() 
-	{
+	public int[] getAcceptableTokens() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int[] getRequiredTokens() 
-	{
+	public int[] getRequiredTokens() {
 		// TODO Auto-generated method stub
 		return null;
 	}

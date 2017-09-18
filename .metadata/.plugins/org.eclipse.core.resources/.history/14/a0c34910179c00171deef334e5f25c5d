@@ -76,7 +76,6 @@ public class MethodLimitCheck extends AbstractCheck {
     			totalUniqueOperand.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operandList.get(i),true));
     	}
     	
-    	// Halstead Vocabulary is the sum of the number of unique operators and unique operands [1,2]
     	log(aAST.getLineNo(), "methodlimit", "Halstead Vocabulary: " + (totalUniqueOperator.size() + totalUniqueOperand.size()));
     	
     	log(aAST.getLineNo(), "methodlimit", "Total Number of operators: " + totalNotUniqueOperator.size());

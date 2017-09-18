@@ -69,14 +69,12 @@ public class MethodLimitCheck extends AbstractCheck {
     			totalUniqueOperator.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operatorList.get(i),true));
     	}
     	
-    	// Number of operands [3]
     	List <DetailAST> totalUniqueOperand = new ArrayList<DetailAST>(); 
     	for(int i = 0; i < operandList.size(); i++)
     	{
     			totalUniqueOperand.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operandList.get(i),true));
     	}
     	
-    	// Halstead Vocabulary is the sum of the number of unique operators and unique operands [1,2]
     	log(aAST.getLineNo(), "methodlimit", "Halstead Vocabulary: " + (totalUniqueOperator.size() + totalUniqueOperand.size()));
     	
     	log(aAST.getLineNo(), "methodlimit", "Total Number of operators: " + totalNotUniqueOperator.size());
@@ -156,15 +154,13 @@ public class MethodLimitCheck extends AbstractCheck {
     }
 
 	@Override
-	public int[] getAcceptableTokens() 
-	{
+	public int[] getAcceptableTokens() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int[] getRequiredTokens() 
-	{
+	public int[] getRequiredTokens() {
 		// TODO Auto-generated method stub
 		return null;
 	}
