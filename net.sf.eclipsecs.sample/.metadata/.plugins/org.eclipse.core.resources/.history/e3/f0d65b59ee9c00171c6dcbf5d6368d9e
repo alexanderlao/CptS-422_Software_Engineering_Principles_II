@@ -1,0 +1,19 @@
+package tests;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class StructuralTests 
+{
+	@Test
+	public void testVolume()
+	{
+		
+	}
+	
+	@Test
+	public void testDifficulty()
+	{
+		
+	}
+}
