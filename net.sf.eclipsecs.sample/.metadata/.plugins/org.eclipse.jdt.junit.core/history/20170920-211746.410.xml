@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestMethodLimit" project="net.sf.eclipsecs.sample" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="UnitTesting.TestMethodLimit" time="0.111">
+    <testcase name="testDifficulty" classname="UnitTesting.TestMethodLimit" time="0.099"/>
+    <testcase name="testVolume" classname="UnitTesting.TestMethodLimit" time="0.012"/>
+  </testsuite>
+</testrun>
