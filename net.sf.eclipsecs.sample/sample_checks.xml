@@ -17,12 +17,12 @@
 
     <module name="TreeWalker">
 
-       <module name="MethodLimit">
+    <module name="MethodLimit">
             <property name="max" value="1"/>
-            <message key="methodlimit" value="Man, only {0} methods allowed."/>
-        </module>
-
-<!--        <module name="LineLength">
+            <message key="methodlimit" value="{0}"/>
+    </module>
+<!--
+        <module name="LineLength">
             <property name="max" value="${maxLineLength}"/>
         </module>-->
 
