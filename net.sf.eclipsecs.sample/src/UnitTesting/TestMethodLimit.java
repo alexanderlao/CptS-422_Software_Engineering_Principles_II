@@ -22,7 +22,8 @@ import antlr.RecognitionException;
 import antlr.TokenStreamException;
 import net.sf.eclipsecs.sample.checks.*;
 
-public class TestMethodLimit extends MethodLimitCheck{
+public class TestMethodLimit extends MethodLimitCheck
+{
 	private DetailAST getAST(String filename) throws Exception
 	{
 		File file = new File(System.getProperty("user.dir") + "\\src\\UnitTesting\\" + filename);	
@@ -32,43 +33,36 @@ public class TestMethodLimit extends MethodLimitCheck{
 		return TreeWalker.parseWithComments(contents);	
 	}
 	
-	// Unit Testing
+	// Halstead Volume is the program length (N) 
+	// times the log2 of the program vocabulary (n) [1,2] : Volume = N log2 n
 	@Test
-	public void checkTotalOperator() throws Throwable  {
-		DetailAST rootAST = getAST("TestCaseOne.java");
-		// Expected: 2
-		assertEquals(2,MethodLimitCheck.getTotalNotUniqueOperator(rootAST));
+	public void testVolume() throws Throwable
+	{
+		// assuming getLength() and getVocabulary() are both tested
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(25, Math.round(MethodLimitCheck.getVolume(caseOneAST)));
 		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(5, Math.round(MethodLimitCheck.getVolume(caseTwoAST)));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(693, Math.round(MethodLimitCheck.getVolume(caseThreeAST)));
 	}
+	
+	// Halstead Difficulty is half of the unique operators 
+	// multiplied by the total number of operands, 
+	// divided by the number of distinct operators [1,2]
 	@Test
-	public void checkTotalOperand() throws Throwable  {
-		DetailAST rootAST = getAST("TestCaseOne.java");
-		// Expected: 7
-		assertEquals(7,MethodLimitCheck.getTotalNotUniqueOperand(rootAST));	
-	}
-	@Test
-	public void checkUniqueOperator() throws Throwable  {
-		DetailAST rootAST = getAST("TestCaseOne.java");
-		// Expected: 1
-		assertEquals(1,MethodLimitCheck.getTotalUniqueOperator(rootAST));	
-	}
-	@Test
-	public void checkUniqueOperand() throws Throwable  {
-		DetailAST rootAST = getAST("TestCaseOne.java");
-		// Expected: 6
-		assertEquals(6,MethodLimitCheck.getTotalUniqueOperand(rootAST));		
-	}
-	@Test
-	public void checkLength() throws Exception  {
-		DetailAST rootAST = getAST("TestCaseOne.java");
-		// Assuming MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
-		assertEquals(MethodLimitCheck.getTotalNotUniqueOperator(rootAST) + MethodLimitCheck.getTotalNotUniqueOperand(rootAST),MethodLimitCheck.getLength(rootAST));
-	}
-	@Test
-	public void checkVocab() throws Exception  {
-		DetailAST rootAST = getAST("TestCaseOne.java");	
-		// Assuming MethodLimitCheck.getTotalUniqueOperator() and MethodLimitCheck.getTotalUniqueOperand are tested.
-		assertEquals(MethodLimitCheck.getTotalUniqueOperator(rootAST) + MethodLimitCheck.getTotalUniqueOperand(rootAST),MethodLimitCheck.getVocabulary(rootAST));
+	public void testDifficulty() throws Throwable
+	{
+		// assuming getUniqueOperators() and getTotalOperands() are both tested
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(4, Math.round(MethodLimitCheck.getDifficulty(caseOneAST)));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(0, Math.round(MethodLimitCheck.getDifficulty(caseTwoAST)));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(41, Math.round(MethodLimitCheck.getDifficulty(caseThreeAST)));
 	}
 }
- 
