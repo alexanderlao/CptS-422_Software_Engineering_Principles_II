@@ -99,32 +99,106 @@ public class TestMethodLimit extends MethodLimitCheck{
 	}
 	/*************************************************************************/
 	
-	/*********************************EUNJI PARK*****************************/
+	/*********************************ANGIE PARK*****************************/
 	// Unit Testing
 	@Test
-	public void checkTotalOperator() throws Throwable  {
-		DetailAST rootAST = getAST("TestCaseOne.java");
-		// Expected: 2
-		assertEquals(2,MethodLimitCheck.getTotalNotUniqueOperator(rootAST));
+	public void checkEffort() throws Throwable  {
+		// assuming getLength() and getVocabulary() are both tested
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(88, Math.round(MethodLimitCheck.getEffort(caseOneAST)));
+		assertEquals(Math.round(MethodLimitCheck.getDifficulty(caseOneAST)*MethodLimitCheck.getVolume(caseOneAST)), Math.round(MethodLimitCheck.getEffort(caseOneAST)));
 		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java"); 
+		assertEquals(0, Math.round(MethodLimitCheck.getEffort(caseTwoAST)));
+		assertEquals(Math.round(MethodLimitCheck.getDifficulty(caseTwoAST)*MethodLimitCheck.getVolume(caseTwoAST)), Math.round(MethodLimitCheck.getEffort(caseTwoAST)));
+		
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java"); 
+		assertEquals(28055, Math.round(MethodLimitCheck.getEffort(caseThreeAST)));
+		assertEquals(Math.round(MethodLimitCheck.getDifficulty(caseThreeAST)*MethodLimitCheck.getVolume(caseThreeAST)), Math.round(MethodLimitCheck.getEffort(caseThreeAST)));
+	}
+	
+	@Test
+	public void checkTotalOperator() throws Throwable  {
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(2, MethodLimitCheck.getNumberOperators(caseOneAST));
+	
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(0, MethodLimitCheck.getNumberOperators(caseTwoAST));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(51, MethodLimitCheck.getNumberOperators(caseThreeAST));
 	}
 	@Test
 	public void checkTotalOperand() throws Throwable  {
-		DetailAST rootAST = getAST("TestCaseOne.java");
-		// Expected: 7
-		assertEquals(7,MethodLimitCheck.getTotalNotUniqueOperand(rootAST));	
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(7, MethodLimitCheck.getNumberOperand(caseOneAST));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(3, MethodLimitCheck.getNumberOperand(caseTwoAST));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(81, MethodLimitCheck.getNumberOperand(caseThreeAST));
 	}
 	@Test
 	public void checkUniqueOperator() throws Throwable  {
-		DetailAST rootAST = getAST("TestCaseOne.java");
-		// Expected: 1
-		assertEquals(1,MethodLimitCheck.getTotalUniqueOperator(rootAST));	
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(1, MethodLimitCheck.getTotalUniqueOperator(caseOneAST));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(0, MethodLimitCheck.getTotalUniqueOperator(caseTwoAST));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(14, MethodLimitCheck.getTotalUniqueOperator(caseThreeAST));
 	}
 	@Test
 	public void checkUniqueOperand() throws Throwable  {
-		DetailAST rootAST = getAST("TestCaseOne.java");
-		// Expected: 6
-		assertEquals(6,MethodLimitCheck.getTotalUniqueOperand(rootAST));		
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(6, MethodLimitCheck.getTotalUniqueOperand(caseOneAST));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(3, MethodLimitCheck.getTotalUniqueOperand(caseTwoAST));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(24, MethodLimitCheck.getTotalUniqueOperand(caseThreeAST));
+	}
+	
+	
+	// Integration Testing
+
+	@Test
+	public void checkEffortWithDifficulty() throws Throwable  {
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(Math.round(3.5*25.2662), Math.round(MethodLimitCheck.getEffort(caseOneAST)));
+		assertNotSame(Math.round(4*25.2662), Math.round(MethodLimitCheck.getEffort(caseOneAST)));
+		assertNotSame(Math.round(1*25.2662), Math.round(MethodLimitCheck.getEffort(caseOneAST)));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(Math.round(0*4.755), Math.round(MethodLimitCheck.getEffort(caseTwoAST)));
+		assertNotSame(Math.round(4*4.755), Math.round(MethodLimitCheck.getEffort(caseTwoAST)));
+		assertNotSame(Math.round(1*4.755), Math.round(MethodLimitCheck.getEffort(caseTwoAST)));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(Math.round(40.5*692.7264), Math.round(MethodLimitCheck.getEffort(caseThreeAST)));
+		assertNotSame(Math.round(4*692.7264), Math.round(MethodLimitCheck.getEffort(caseThreeAST)));
+		assertNotSame(Math.round(1*692.7264), Math.round(MethodLimitCheck.getEffort(caseThreeAST)));	
+	}
+	@Test
+	public void checkEffortWithVolume() throws Throwable {
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(Math.round(3.5*25.2662), Math.round(MethodLimitCheck.getEffort(caseOneAST)));
+		assertNotSame(Math.round(3.5*2), Math.round(MethodLimitCheck.getEffort(caseOneAST)));
+		assertNotSame(Math.round(3.5*100), Math.round(MethodLimitCheck.getEffort(caseOneAST)));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(Math.round(0*4.755), Math.round(MethodLimitCheck.getEffort(caseTwoAST)));
+		assertNotSame(Math.round(0*25), Math.round(MethodLimitCheck.getEffort(caseTwoAST)));
+		assertNotSame(Math.round(0*11), Math.round(MethodLimitCheck.getEffort(caseTwoAST)));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(Math.round(40.5*692.7264), Math.round(MethodLimitCheck.getEffort(caseThreeAST)));
+		assertNotSame(Math.round(40.5*200), Math.round(MethodLimitCheck.getEffort(caseThreeAST)));
+		assertNotSame(Math.round(40.5*16), Math.round(MethodLimitCheck.getEffort(caseThreeAST)));
 	}
 	/*************************************************************************/
 }
