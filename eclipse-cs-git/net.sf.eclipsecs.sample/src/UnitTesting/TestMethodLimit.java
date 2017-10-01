@@ -201,6 +201,42 @@ public class TestMethodLimit extends MethodLimitCheck{
 		assertNotSame(Math.round(40.5*16), Math.round(MethodLimitCheck.getEffort(caseThreeAST)));
 	}
 	/*************************************************************************/
+	
+	
+	// User Testing
+	@Test
+	public void userTesting() throws Throwable {
+		Scanner scanner = new Scanner(System.in); 
+		boolean pass = false;
+		
+		while (!pass)
+		{
+		
+			System.out.println("JAVA Filename: "); //TestCaseFour.java
+			String userInput = scanner.nextLine();
+			
+			try 
+			{
+				DetailAST rootAST = getAST(userInput);
+				System.out.println("Halstead Length: " + MethodLimitCheck.getLength(rootAST));
+				System.out.println("Halstead Vocabulary: " + MethodLimitCheck.getVocabulary(rootAST));
+				System.out.println("Total Number of operators: " + MethodLimitCheck.getNumberOperators(rootAST));
+				System.out.println("Total Number of operands: " + MethodLimitCheck.getNumberOperand(rootAST));
+				System.out.println("Halstead Volume: " + MethodLimitCheck.getVolume(rootAST));
+				System.out.println("Halstead Difficulty: " + MethodLimitCheck.getDifficulty(rootAST));
+				System.out.println("Halstead Effort: " + MethodLimitCheck.getEffort(rootAST));
+				
+				pass = true;
+			}
+			catch (Exception e)
+			{
+				System.err.println("There is no such file...");
+				e.printStackTrace();
+			}
+		}
+		
+		scanner.close();
+	}
 }
 	
  
