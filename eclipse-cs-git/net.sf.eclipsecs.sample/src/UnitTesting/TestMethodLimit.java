@@ -230,8 +230,9 @@ public class TestMethodLimit extends MethodLimitCheck{
 			}
 			catch (Exception e)
 			{
-				System.err.println("There is no such file...");
-				e.printStackTrace();
+				System.out.println("There is no such file...");
+				//e.printStackTrace();
+				continue;
 			}
 		}
 		
