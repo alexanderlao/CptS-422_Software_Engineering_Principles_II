@@ -35,3 +35,7 @@ Thumbs.db
 
 # jME (binaries)
 *.so
+
+net.sf.eclipsecs.doc/docs/
+*/bin/
+*/target/
