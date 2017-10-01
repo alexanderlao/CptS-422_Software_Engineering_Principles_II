@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/cglib-nodep-3.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/easymock-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/javassist-3.12.1.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/mockito-all-1.10.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/objenesis-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/powermock-api-easymock-1.6.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/piken/Desktop/cpts422project/eclipse-cs-git/net.sf.eclipsecs.sample/Lib/powermock-mockito-release-full-1.6.4-full.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
