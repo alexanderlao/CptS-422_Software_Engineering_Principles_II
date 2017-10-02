@@ -1,6 +1,13 @@
-package UnitTesting;
+package testing;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+import org.easymock.EasyMock;
+import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.powermock.api.easymock.PowerMock;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -22,7 +29,9 @@ import antlr.RecognitionException;
 import antlr.TokenStreamException;
 import net.sf.eclipsecs.sample.checks.*;
 
-public class TestMethodLimit extends MethodLimitCheck{
+public class TestMethodLimit 
+{
+	
 	private DetailAST getAST(String filename) throws Exception
 	{
 		File file = new File(System.getProperty("user.dir") + "\\src\\UnitTesting\\" + filename);	
@@ -71,7 +80,7 @@ public class TestMethodLimit extends MethodLimitCheck{
 	/*********************************MINH NGUYEN*****************************/
 	@Test
 	public void checkLength() throws Exception  {
-		// Unit testing.
+		///////////////// Unit testing ///////////
 		DetailAST rootAST = getAST("TestCaseOne.java");
 		assertEquals(9,MethodLimitCheck.getLength(rootAST));	
 		rootAST = getAST("TestCaseTwo.java");
@@ -92,8 +101,33 @@ public class TestMethodLimit extends MethodLimitCheck{
 	}
 	
 	@Test
+	public void testToString() throws Exception
+	{
+		// Test to string
+		// Mocking (spy)
+		MethodLimitCheck spying = spy(new MethodLimitCheck());
+		doReturn(9).when(spying).getLength();
+		doReturn(7).when(spying).getVocabulary();
+		doReturn(2).when(spying).getNumberOperators();
+		doReturn(7).when(spying).getNumberOperand();
+		doReturn(25).when(spying).getVolume();
+		doReturn(4).when(spying).getDifficulty();
+		doReturn(100).when(spying).getEffort();
+		
+		assertEquals("Halstead Length: 9\n"
+				+ "Halstead Vocabulary: 7\n"
+				+ "Total Number of operators: 2\n"
+				+ "Total Number of operands: 7\n"
+				+ "Halstead Volume: 25\n"
+				+ "Halstead Difficulty: 4\n"
+				+ "Halstead Effort: 100\n",spying.ToString());
+	}
+	
+	
+	@Test
 	public void checkProcess() throws Exception
 	{
+		
 		// System testing.
 		DetailAST rootAST = getAST("TestCaseOne.java");
 		// Assuming MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
@@ -161,4 +195,6 @@ public class TestMethodLimit extends MethodLimitCheck{
 	
 	
 }
+
+
  
