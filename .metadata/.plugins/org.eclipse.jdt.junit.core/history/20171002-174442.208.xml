@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestMethodLimitPowerMock" project="net.sf.eclipsecs.sample" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="testing.TestMethodLimitPowerMock" time="0.0">
+    <testcase name="initializationError" classname="testing.TestMethodLimitPowerMock" time="0.0">
+      <error>java.lang.IllegalStateException: Failed to transform class with name net.sf.eclipsecs.sample.checks.MethodLimitCheck. Reason: java.io.IOException: invalid constant type: 15&#13;
+	at org.powermock.core.classloader.MockClassLoader.loadMockClass(MockClassLoader.java:267)&#13;
+	at org.powermock.core.classloader.MockClassLoader.loadModifiedClass(MockClassLoader.java:180)&#13;
+	at org.powermock.core.classloader.DeferSupportingClassLoader.loadClass(DeferSupportingClassLoader.java:70)&#13;
+	at java.lang.ClassLoader.loadClass(Unknown Source)&#13;
+	at java.lang.Class.forName0(Native Method)&#13;
+	at java.lang.Class.forName(Unknown Source)&#13;
+	at sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(Unknown Source)&#13;
+	at sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Unknown Source)&#13;
+	at sun.reflect.generics.tree.ClassTypeSignature.accept(Unknown Source)&#13;
+	at sun.reflect.annotation.AnnotationParser.parseSig(Unknown Source)&#13;
+	at sun.reflect.annotation.AnnotationParser.parseClassValue(Unknown Source)&#13;
+	at sun.reflect.annotation.AnnotationParser.parseClassArray(Unknown Source)&#13;
+	at sun.reflect.annotation.AnnotationParser.parseArray(Unknown Source)&#13;
+	at sun.reflect.annotation.AnnotationParser.parseMemberValue(Unknown Source)&#13;
+	at sun.reflect.annotation.AnnotationParser.parseAnnotation2(Unknown Source)&#13;
+	at sun.reflect.annotation.AnnotationParser.parseAnnotations2(Unknown Source)&#13;
+	at sun.reflect.annotation.AnnotationParser.parseAnnotations(Unknown Source)&#13;
+	at java.lang.Class.createAnnotationData(Unknown Source)&#13;
+	at java.lang.Class.annotationData(Unknown Source)&#13;
+	at java.lang.Class.getAnnotation(Unknown Source)&#13;
+	at org.junit.internal.MethodSorter.getDeclaredMethods(MethodSorter.java:52)&#13;
+	at org.junit.internal.runners.TestClass.getAnnotatedMethods(TestClass.java:45)&#13;
+	at org.junit.internal.runners.MethodValidator.validateTestMethods(MethodValidator.java:71)&#13;
+	at org.junit.internal.runners.MethodValidator.validateStaticMethods(MethodValidator.java:44)&#13;
+	at org.junit.internal.runners.MethodValidator.validateMethodsForDefaultRunner(MethodValidator.java:50)&#13;
+	at org.powermock.modules.junit4.internal.impl.PowerMockJUnit44RunnerDelegateImpl.validate(PowerMockJUnit44RunnerDelegateImpl.java:108)&#13;
+	at org.powermock.modules.junit4.internal.impl.PowerMockJUnit44RunnerDelegateImpl.&lt;init&gt;(PowerMockJUnit44RunnerDelegateImpl.java:70)&#13;
+	at org.powermock.modules.junit4.internal.impl.PowerMockJUnit47RunnerDelegateImpl.&lt;init&gt;(PowerMockJUnit47RunnerDelegateImpl.java:42)&#13;
+	at org.powermock.modules.junit4.internal.impl.PowerMockJUnit49RunnerDelegateImpl.&lt;init&gt;(PowerMockJUnit49RunnerDelegateImpl.java:25)&#13;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)&#13;
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)&#13;
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)&#13;
+	at org.powermock.modules.junit4.common.internal.impl.JUnit4TestSuiteChunkerImpl.createDelegatorFromClassloader(JUnit4TestSuiteChunkerImpl.java:156)&#13;
+	at org.powermock.modules.junit4.common.internal.impl.JUnit4TestSuiteChunkerImpl.createDelegatorFromClassloader(JUnit4TestSuiteChunkerImpl.java:40)&#13;
+	at org.powermock.tests.utils.impl.AbstractTestSuiteChunkerImpl.createTestDelegators(AbstractTestSuiteChunkerImpl.java:244)&#13;
+	at org.powermock.modules.junit4.common.internal.impl.JUnit4TestSuiteChunkerImpl.&lt;init&gt;(JUnit4TestSuiteChunkerImpl.java:61)&#13;
+	at org.powermock.modules.junit4.common.internal.impl.AbstractCommonPowerMockRunner.&lt;init&gt;(AbstractCommonPowerMockRunner.java:32)&#13;
+	at org.powermock.modules.junit4.PowerMockRunner.&lt;init&gt;(PowerMockRunner.java:34)&#13;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)&#13;
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)&#13;
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)&#13;
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:104)&#13;
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:86)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)&#13;
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)&#13;
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:33)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createUnfilteredTest(JUnit4TestLoader.java:84)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.createTest(JUnit4TestLoader.java:70)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader.loadTests(JUnit4TestLoader.java:43)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:444)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+Caused by: java.lang.RuntimeException: java.io.IOException: invalid constant type: 15&#13;
+	at javassist.CtClassType.getClassFile2(CtClassType.java:203)&#13;
+	at javassist.CtClassType.makeFieldCache(CtClassType.java:837)&#13;
+	at javassist.CtClassType.getMembers(CtClassType.java:828)&#13;
+	at javassist.CtClassType.getMethod0(CtClassType.java:1126)&#13;
+	at javassist.CtClassType.getMethod(CtClassType.java:1115)&#13;
+	at javassist.expr.MethodCall.getMethod(MethodCall.java:114)&#13;
+	at org.powermock.core.transformers.impl.MainMockTransformer$PowerMockExpressionEditor.edit(MainMockTransformer.java:272)&#13;
+	at javassist.expr.ExprEditor.loopBody(ExprEditor.java:191)&#13;
+	at javassist.expr.ExprEditor.doit(ExprEditor.java:90)&#13;
+	at javassist.CtClassType.instrument(CtClassType.java:1374)&#13;
+	at org.powermock.core.transformers.impl.MainMockTransformer.transform(MainMockTransformer.java:74)&#13;
+	at org.powermock.core.classloader.MockClassLoader.loadMockClass(MockClassLoader.java:252)&#13;
+	... 55 more&#13;
+Caused by: java.io.IOException: invalid constant type: 15&#13;
+	at javassist.bytecode.ConstPool.readOne(ConstPool.java:1090)&#13;
+	at javassist.bytecode.ConstPool.read(ConstPool.java:1033)&#13;
+	at javassist.bytecode.ConstPool.&lt;init&gt;(ConstPool.java:149)&#13;
+	at javassist.bytecode.ClassFile.read(ClassFile.java:737)&#13;
+	at javassist.bytecode.ClassFile.&lt;init&gt;(ClassFile.java:108)&#13;
+	at javassist.CtClassType.getClassFile2(CtClassType.java:190)&#13;
+	... 66 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>
