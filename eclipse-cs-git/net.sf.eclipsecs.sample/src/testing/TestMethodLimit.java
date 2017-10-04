@@ -42,6 +42,39 @@ public class TestMethodLimit
 	}
 	
 	/********************************ALEX LAO*****************************/
+	// Halstead Volume is the program length (N) 
+	// times the log2 of the program vocabulary (n) [1,2] : Volume = N log2 n
+	@Test
+	public void testVolume() throws Throwable
+	{
+		// assuming getLength() and getVocabulary() are both tested
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(25, Math.round(MethodLimitCheck.getVolume(caseOneAST)));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(5, Math.round(MethodLimitCheck.getVolume(caseTwoAST)));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(693, Math.round(MethodLimitCheck.getVolume(caseThreeAST)));
+	}
+	
+	// Halstead Difficulty is half of the unique operators 
+	// multiplied by the total number of operands, 
+	// divided by the number of distinct operators [1,2]
+	@Test
+	public void testDifficulty() throws Throwable
+	{
+	
+		// assuming getUniqueOperators() and getTotalOperands() are both tested
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(4, Math.round(MethodLimitCheck.getDifficulty(caseOneAST)));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(0, Math.round(MethodLimitCheck.getDifficulty(caseTwoAST)));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(41, Math.round(MethodLimitCheck.getDifficulty(caseThreeAST)));
+	}
 	/*************************************************************************/
 	
 	/*********************************MINH NGUYEN*****************************/
