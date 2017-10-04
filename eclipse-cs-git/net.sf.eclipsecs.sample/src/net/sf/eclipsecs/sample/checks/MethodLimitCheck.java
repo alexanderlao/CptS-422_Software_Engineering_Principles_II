@@ -22,15 +22,16 @@ public class MethodLimitCheck extends AbstractCheck {
     private int max = 3;
     private static int test = 0;
 
+    // Variables
     private static List <DetailAST> totalNotUniqueOperator;
     private static List <DetailAST> totalNotUniqueOperand;
     private static List <DetailAST> totalUniqueOperator;
     private static List <DetailAST> totalUniqueOperand;
     
-    
+    // Check for process
     static boolean check = false;
 
-    
+    /************************ GETTER ********************/
     public static int getTotalNotUniqueOperator(DetailAST root)
     {
     	process(root);
@@ -103,6 +104,145 @@ public class MethodLimitCheck extends AbstractCheck {
 				,totalUniqueOperator.size() + totalUniqueOperand.size()));
     }
     
+    public static boolean getDoneProcessing(DetailAST root)
+    {
+    	return process(root);
+    }
+    /********************************************************************/
+    
+    /*******************************FOR MOCKING ************************/
+    public int getTotalNotUniqueOperator()
+    {
+    	return 0;    	
+    }
+    
+    public int getTotalNotUniqueOperand()
+    {
+    	return 0;   	
+    }
+    
+    public int getTotalUniqueOperator()
+    {
+    	return 0;
+    }
+    
+    public int getTotalUniqueOperand()
+    {
+    	return 0;
+    }
+    
+    public int getLength()
+    {
+    	return 0;
+    }
+    
+    public int getVocabulary()
+    {
+    	return 0;
+    }
+    
+    public int getNumberOperators()
+    {
+    	return 0;
+    }
+    
+    public int getNumberOperand()
+    {
+    	return 0;
+    }
+    
+    public int getVolume()
+    {
+    	return 0;
+    }
+    
+    public int getDifficulty()
+    {
+    	return 0;
+    }
+    
+    public int getEffort()
+    {
+    	return 0;
+    }
+    
+    public boolean getDoneProcessing()
+    {
+    	return false;
+    }
+    
+    public String ToString()
+    {
+    	return 
+    		  "Halstead Length: " + getLength() +"\n"
+    		+ "Halstead Vocabulary: " + getVocabulary() +"\n"
+    		+ "Total Number of operators: " + getNumberOperators() +"\n"
+    		+ "Total Number of operands: " + getNumberOperand() +"\n"
+    		+ "Halstead Volume: " + getVolume()+"\n"
+    		+ "Halstead Difficulty: " + getDifficulty() +"\n"
+    		+ "Halstead Effort: " + getEffort() +"\n";
+    }
+    /*******************************************************************/
+    
+    /*******************************For powermock***********************************/
+    public static boolean isProccessedAST(DetailAST ast, boolean proc)
+    {
+    	if(process(ast) && isAST(proc))
+    	{
+    		return true;
+    	}
+    	return false;
+    }
+    public static boolean isAST(boolean test)
+    {
+    	return false;
+    }
+    public static boolean proeed(DetailAST ast)
+    {
+    	return false;
+    }
+    /****************************************************************/
+    /************************toString************************************/
+    public String LengthToString()
+    {
+    	return "Halstead Length: " +  (totalNotUniqueOperator.size() + totalNotUniqueOperand.size());
+    }
+    
+    public String VocabToString()
+    {
+    	return "Halstead Vocabulary: " + (totalUniqueOperator.size() + totalUniqueOperand.size());
+    }
+    
+    public String TotalNumbeOfOperatorToString()
+    {
+    	return "Total Number of operators: " + totalNotUniqueOperator.size();
+    }
+    
+    public String TotalNumbeOfOperandToString()
+    {
+    	return "Total Number of operands: " + totalNotUniqueOperand.size();
+    }
+    
+    public String VolumeToString()
+    {
+    	return "Halstead Volume: " + findVolume(totalNotUniqueOperator.size() + totalNotUniqueOperand.size()
+		,totalUniqueOperator.size() + totalUniqueOperand.size());
+    }
+    
+    public String DifficultyToString()
+    {
+    	return "Halstead Difficulty: " + findDifficulty(totalUniqueOperator.size(),totalNotUniqueOperand.size());
+    }
+    
+    public String EfforToString()
+    {
+    	return "Halstead Effort: " + findEffort(findDifficulty(totalUniqueOperator.size(),totalNotUniqueOperand.size()
+							),findVolume(totalNotUniqueOperator.size() + totalNotUniqueOperand.size()
+						,totalUniqueOperator.size() + totalUniqueOperand.size()));
+    }
+    /*****************************************************************/
+    
+    /***************COME WITH SAMPLE**********************/
     @Override
     public int[] getDefaultTokens() {
         return new int[] { TokenTypes.CLASS_DEF, TokenTypes.INTERFACE_DEF };
@@ -111,6 +251,9 @@ public class MethodLimitCheck extends AbstractCheck {
     public void setMax(int limit) {
         max = limit;
     }
+    /****************************************************/
+    
+    // Modified visitoken.
     static List<Integer> totalTokenInObj = new ArrayList<Integer>();
     @Override
     public void visitToken(DetailAST aAST) {
@@ -118,20 +261,17 @@ public class MethodLimitCheck extends AbstractCheck {
     	log(aAST.getLineNo(), "methodlimit",aAST.toStringList());
     	if(checkDone())
     	{
-    	log(aAST.getLineNo(), "methodlimit", "Halstead Length: " + (totalNotUniqueOperator.size() + totalNotUniqueOperand.size()));
-    	log(aAST.getLineNo(), "methodlimit", "Halstead Vocabulary: " + (totalUniqueOperator.size() + totalUniqueOperand.size()));
-    	log(aAST.getLineNo(), "methodlimit", "Total Number of operators: " + totalNotUniqueOperator.size());
-    	log(aAST.getLineNo(), "methodlimit", "Total Number of operands: " + totalNotUniqueOperand.size());
-    	log(aAST.getLineNo(), "methodlimit", "Halstead Volume: " + findVolume(totalNotUniqueOperator.size() + totalNotUniqueOperand.size()
-    																	,totalUniqueOperator.size() + totalUniqueOperand.size()));
-    	log(aAST.getLineNo(), "methodlimit", "Halstead Difficulty: " + findDifficulty(totalUniqueOperator.size(),totalNotUniqueOperand.size()
-    																						));
-    	log(aAST.getLineNo(), "methodlimit", "Halstead Effort: " + findEffort(findDifficulty(totalUniqueOperator.size(),totalNotUniqueOperand.size()
-    																						),findVolume(totalNotUniqueOperator.size() + totalNotUniqueOperand.size()
-    																	,totalUniqueOperator.size() + totalUniqueOperand.size())));    	
+    	log(aAST.getLineNo(), "methodlimit", LengthToString() );
+    	log(aAST.getLineNo(), "methodlimit", VocabToString());
+    	log(aAST.getLineNo(), "methodlimit", TotalNumbeOfOperatorToString());
+    	log(aAST.getLineNo(), "methodlimit", TotalNumbeOfOperandToString());
+    	log(aAST.getLineNo(), "methodlimit", VolumeToString());
+    	log(aAST.getLineNo(), "methodlimit", DifficultyToString());
+    	log(aAST.getLineNo(), "methodlimit", EfforToString());    	
     	}
     }
     
+    /*********************************Helper Function *************************/
     private boolean checkDone()
     {
     	if( !totalNotUniqueOperator.isEmpty() && !totalNotUniqueOperand.isEmpty()
@@ -142,7 +282,7 @@ public class MethodLimitCheck extends AbstractCheck {
     	return false;
     }
     
-    public static void process(DetailAST aAST)
+    public static boolean process(DetailAST aAST)
     {
     	List<Integer> operatorList = new ArrayList<Integer>();
     	operatorList = Arrays.asList(TokenTypes.ASSIGN,TokenTypes.BAND,TokenTypes.BAND_ASSIGN,
@@ -184,6 +324,12 @@ public class MethodLimitCheck extends AbstractCheck {
     	{
     			totalUniqueOperand.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operandList.get(i),true));
     	}
+    	if( !totalNotUniqueOperator.isEmpty() && !totalNotUniqueOperand.isEmpty()
+    			&& !totalUniqueOperator.isEmpty() && !totalUniqueOperand.isEmpty())
+    	{
+    		return true;
+    	}
+    	return false;
     }
 
     private static double findVolume(int N, int n)
@@ -239,6 +385,7 @@ public class MethodLimitCheck extends AbstractCheck {
         }
         return list;
     }
+    /**************************************************************************/
 }
 
     
