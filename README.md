@@ -34,7 +34,7 @@ To run the Structural Metric CheckStyle on any project:
 7. Click on the newly created Checkstyle configuration and click on "Set as Default."
 8. While still highlighted on the newly created Checkstyle configuration, click on "Configure."
 9. Scroll down and click on "My custom checks" on the left column. You should see "Structural Metrics" underneath "My customm checks."
-10. Click on "Add" while "Structural Metrics is highlighted.
+10. Click on "Add" while "Structural Metrics" is highlighted.
 11. Change the severity to "error" and click "OK."
 12. Right click on the .class file you want to check and click on "Checkstyle -> Check code with Checkstyle."
 13. You will see the Structural Metric checks in the "Problems" console under "Errors."
