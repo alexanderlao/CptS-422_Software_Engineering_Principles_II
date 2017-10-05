@@ -16,9 +16,6 @@ import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import java.io.File;
-import java.util.Arrays;
-
 import org.junit.Test;
 import org.xml.sax.InputSource;
 
@@ -27,7 +24,6 @@ import com.puppycrawl.tools.checkstyle.TreeWalker;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FileContents;
 import com.puppycrawl.tools.checkstyle.api.FileText;
-import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 import antlr.ANTLRException;
 import antlr.RecognitionException;
@@ -164,58 +160,6 @@ public class TestMethodLimit
 		rootAST = getAST("TestCaseOne.java");	
 		// Assuming MethodLimitCheck.getTotalUniqueOperator() and MethodLimitCheck.getTotalUniqueOperand are tested.
 		assertEquals(MethodLimitCheck.getTotalUniqueOperator(rootAST) + MethodLimitCheck.getTotalUniqueOperand(rootAST),MethodLimitCheck.getVocabulary(rootAST));
-	}
-	
-	@Test
-	public void checkGetDetailASTsForTypeInBranch() throws Exception
-	{
-		List<Integer> operatorList = new ArrayList<Integer>();
-    	operatorList = Arrays.asList(TokenTypes.ASSIGN,TokenTypes.BAND,TokenTypes.BAND_ASSIGN,
-    			TokenTypes.BNOT,TokenTypes.BOR,TokenTypes.BOR_ASSIGN,TokenTypes.BSR,TokenTypes.BSR_ASSIGN,
-    			TokenTypes.BXOR,TokenTypes.BXOR_ASSIGN,TokenTypes.COLON,TokenTypes.COMMA,TokenTypes.DEC
-    			,TokenTypes.DIV,TokenTypes.DIV_ASSIGN,TokenTypes.DOT,TokenTypes.EQUAL,TokenTypes.GE
-    			,TokenTypes.GT,TokenTypes.INC,TokenTypes.INDEX_OP,TokenTypes.LAND,TokenTypes.LE
-    			,TokenTypes.LITERAL_INSTANCEOF,TokenTypes.LNOT,TokenTypes.LOR,TokenTypes.LT
-    			,TokenTypes.MINUS,TokenTypes.MINUS_ASSIGN,TokenTypes.MOD,TokenTypes.MOD_ASSIGN
-    			,TokenTypes.NOT_EQUAL,TokenTypes.PLUS,TokenTypes.PLUS_ASSIGN,TokenTypes.POST_DEC
-    			,TokenTypes.POST_INC,TokenTypes.QUESTION,TokenTypes.SL,TokenTypes.SL_ASSIGN
-    			,TokenTypes.SR,TokenTypes.SR_ASSIGN,TokenTypes.STAR,TokenTypes.STAR_ASSIGN
-    			,TokenTypes.UNARY_MINUS,TokenTypes.UNARY_PLUS);
-    	
-    	List<Integer> operandList = new ArrayList<Integer>();
-    	operandList = Arrays.asList(TokenTypes.IDENT,TokenTypes.STRING_LITERAL
-    			,TokenTypes.CHAR_LITERAL, TokenTypes.LITERAL_TRUE,TokenTypes.LITERAL_FALSE
-    			,TokenTypes.LITERAL_NULL,TokenTypes.NUM_FLOAT,TokenTypes.NUM_INT,TokenTypes.NUM_DOUBLE
-    			,TokenTypes.NUM_LONG);
-    	DetailAST rootAST = getAST("TestCaseOne.java");	
-    	List total = new ArrayList<DetailAST>(); 
-    	for(int i = 0; i < operatorList.size(); i++)
-    	{
-    			total.addAll(MethodLimitCheck.getDetailASTsForTypeInBranch(rootAST.findFirstToken(TokenTypes.OBJBLOCK),operatorList.get(i),false));
-    	}	
-    	assertEquals(MethodLimitCheck.getTotalNotUniqueOperator(rootAST),total.size());
-    	
-    	rootAST = getAST("TestCaseTwo.java");	
-    	total = new ArrayList<DetailAST>(); 
-    	for(int i = 0; i < operandList.size(); i++)
-    	{
-    			total.addAll(MethodLimitCheck.getDetailASTsForTypeInBranch(rootAST.findFirstToken(TokenTypes.OBJBLOCK),operandList.get(i),false));
-    	}	
-    	assertEquals(MethodLimitCheck.getTotalNotUniqueOperand(rootAST),total.size());
-    	
-    	rootAST = getAST("TestCaseThree.java");	
-    	total = new ArrayList<DetailAST>(); 
-    	for(int i = 0; i < operatorList.size(); i++)
-    	{
-    			total.addAll(MethodLimitCheck.getDetailASTsForTypeInBranch(rootAST.findFirstToken(TokenTypes.OBJBLOCK),operatorList.get(i),false));
-    	}	
-    	for(int i = 0; i < operandList.size(); i++)
-    	{
-    			total.addAll(MethodLimitCheck.getDetailASTsForTypeInBranch(rootAST.findFirstToken(TokenTypes.OBJBLOCK),operandList.get(i),false));
-    	}	
-    	assertEquals(MethodLimitCheck.getTotalNotUniqueOperand(rootAST) + MethodLimitCheck.getTotalNotUniqueOperator(rootAST),total.size());
-    	
-		
 	}
 	/*************************************************************************/
 	
