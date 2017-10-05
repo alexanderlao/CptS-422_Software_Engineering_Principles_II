@@ -47,6 +47,7 @@ public class TestMethodLimit
 	}
 	
 	/********************************ALEX LAO*****************************/
+	// Unit Testing
 	// Halstead Volume is the program length (N) 
 	// times the log2 of the program vocabulary (n) [1,2] : Volume = N log2 n
 	@Test
@@ -54,13 +55,19 @@ public class TestMethodLimit
 	{
 		// assuming getLength() and getVocabulary() are both tested
 		DetailAST caseOneAST = getAST("TestCaseOne.java");
-		assertEquals(25, Math.round(MethodLimitCheck.getVolume(caseOneAST)));
+		double caseOneOutput = MethodLimitCheck.getLength(caseOneAST) * 
+							   (Math.log(MethodLimitCheck.getVocabulary(caseOneAST))/Math.log(2));
+		assertEquals(25, Math.round(caseOneOutput));
 		
 		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
-		assertEquals(5, Math.round(MethodLimitCheck.getVolume(caseTwoAST)));
+		double caseTwoOutput = MethodLimitCheck.getLength(caseTwoAST) * 
+				   			   (Math.log(MethodLimitCheck.getVocabulary(caseTwoAST))/Math.log(2));
+		assertEquals(5, Math.round(caseTwoOutput));
 		
 		DetailAST caseThreeAST = getAST("TestCaseThree.java");
-		assertEquals(693, Math.round(MethodLimitCheck.getVolume(caseThreeAST)));
+		double caseThreeOutput = MethodLimitCheck.getLength(caseThreeAST) * 
+				   				 (Math.log(MethodLimitCheck.getVocabulary(caseThreeAST))/Math.log(2));
+		assertEquals(693, Math.round(caseThreeOutput));
 	}
 	
 	// Halstead Difficulty is half of the unique operators 
@@ -71,6 +78,42 @@ public class TestMethodLimit
 	{
 	
 		// assuming getUniqueOperators() and getTotalOperands() are both tested
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		double caseOneUniqueOperators = MethodLimitCheck.getTotalUniqueOperator(caseOneAST);
+		double caseOneTotalOperands = MethodLimitCheck.getTotalNotUniqueOperand(caseOneAST);
+		double caseOneOutput = ((caseOneUniqueOperators / 2) * caseOneTotalOperands) / caseOneUniqueOperators;
+		assertEquals(4, Math.round(caseOneOutput));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		double caseTwoUniqueOperators = MethodLimitCheck.getTotalUniqueOperator(caseTwoAST);
+		double caseTwoTotalOperands = MethodLimitCheck.getTotalNotUniqueOperand(caseTwoAST);
+		double caseTwoOutput = ((caseTwoUniqueOperators / 2) * caseTwoTotalOperands) / caseTwoUniqueOperators;
+		assertEquals(0, Math.round(caseTwoOutput));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		double caseThreeUniqueOperators = MethodLimitCheck.getTotalUniqueOperator(caseThreeAST);
+		double caseThreeTotalOperands = MethodLimitCheck.getTotalNotUniqueOperand(caseThreeAST);
+		double caseThreeOutput = ((caseThreeUniqueOperators / 2) * caseThreeTotalOperands) / caseThreeUniqueOperators;
+		assertEquals(41, Math.round(caseThreeOutput));
+	}
+	
+	// Integration Testing
+	@Test
+	public void testVolumeWithLengthAndVocab() throws Throwable  
+	{
+		DetailAST caseOneAST = getAST("TestCaseOne.java");
+		assertEquals(25, Math.round(MethodLimitCheck.getVolume(caseOneAST)));
+		
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		assertEquals(5, Math.round(MethodLimitCheck.getVolume(caseTwoAST)));
+		
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");
+		assertEquals(693, Math.round(MethodLimitCheck.getVolume(caseThreeAST)));	
+	}
+
+	@Test
+	public void testDifficultyWithOperatorsAndOperands() throws Throwable 
+	{
 		DetailAST caseOneAST = getAST("TestCaseOne.java");
 		assertEquals(4, Math.round(MethodLimitCheck.getDifficulty(caseOneAST)));
 		
