@@ -365,7 +365,7 @@ public class TestMethodLimit
 	}
 	
 	// system testing
-	/*@Test
+	@Test
 	public void UsabilityTesting() throws Throwable {
 		Scanner scanner = new Scanner(System.in); 
 		boolean pass = false;
@@ -398,7 +398,7 @@ public class TestMethodLimit
 		}
 		
 		scanner.close();
-	}*/
+	}
 	
 	/*************************************************************************/
 }
