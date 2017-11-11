@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestMethodLimit" project="net.sf.eclipsecs.sample" tests="19" started="19" failures="1" errors="0" ignored="0">
+  <testsuite name="testing.TestMethodLimit" time="1.686">
+    <testcase name="checkGetDetailASTsForTypeInBranch" classname="testing.TestMethodLimit" time="0.238"/>
+    <testcase name="UsabilityTesting" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="checkEffortWithVolume" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="testToString" classname="testing.TestMethodLimit" time="0.006"/>
+    <testcase name="checkVocab" classname="testing.TestMethodLimit" time="0.032"/>
+    <testcase name="checkProcess" classname="testing.TestMethodLimit" time="0.01"/>
+    <testcase name="testDifficulty_UnitTest" classname="testing.TestMethodLimit" time="0.011"/>
+    <testcase name="checkTotalOperator" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="dummy" classname="testing.TestMethodLimit" time="0.001"/>
+    <testcase name="checkEffort" classname="testing.TestMethodLimit" time="1.355"/>
+    <testcase name="testDifficultyWithOperatorsAndOperands_IntegrationTest" classname="testing.TestMethodLimit" time="0.006"/>
+    <testcase name="checkLength" classname="testing.TestMethodLimit" time="0.009"/>
+    <testcase name="checkUniqueOperand" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="checkTotalOperand" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="testVolume_UnitTest" classname="testing.TestMethodLimit" time="0.006"/>
+    <testcase name="checkEffortWithDifficulty" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="testVolumeWithLengthAndVocab_IntegrationTest" classname="testing.TestMethodLimit" time="0.006"/>
+    <testcase name="testVolume_BlackBox_BoundaryValueAnalysis" classname="testing.TestMethodLimit" time="0.003">
+      <failure>java.lang.AssertionError: expected:&lt;-1&gt; but was:&lt;693&gt;&#13;
+	at org.junit.Assert.fail(Assert.java:88)&#13;
+	at org.junit.Assert.failNotEquals(Assert.java:834)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:645)&#13;
+	at org.junit.Assert.assertEquals(Assert.java:631)&#13;
+	at testing.TestMethodLimit.testVolume_BlackBox_BoundaryValueAnalysis(TestMethodLimit.java:231)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)&#13;
+	at java.lang.reflect.Method.invoke(Unknown Source)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)&#13;
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="checkUniqueOperator" classname="testing.TestMethodLimit" time="0.001"/>
+  </testsuite>
+</testrun>

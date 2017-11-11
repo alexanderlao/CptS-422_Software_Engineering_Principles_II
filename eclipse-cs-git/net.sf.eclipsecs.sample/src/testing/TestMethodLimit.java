@@ -51,6 +51,9 @@ public class TestMethodLimit
 	}
 	
 	/********************************ALEX LAO*****************************/
+	
+	// ************************ DELIVERABLE ONE ******************************
+	
 	// Unit Testing
 	// Halstead Volume is the program length (N) 
 	// times the log2 of the program vocabulary (n) [1,2] : Volume = N log2 n
@@ -167,6 +170,165 @@ public class TestMethodLimit
 		assertEquals(-1, Math.round(part1.getDifficulty(caseTwoAST)));
 		assertEquals(41, Math.round(part1.getDifficulty(caseThreeAST)));
 	}
+	
+	// ************************ DELIVERABLE TWO ******************************
+	@Test
+	public void testVolume_BlackBox_BoundaryValueAnalysis() throws Exception
+	{
+		/**********
+		 * Step 1: Using the the ***MOCK*** and the values from the TestSet to test the method
+		 **********/
+		// Create a new spy
+		MethodLimitCheck part2 = spy(new MethodLimitCheck());
+		
+		// This list is going to store the possible for the UO1
+		List<Integer> x = new ArrayList<Integer>();
+		// This list is going to store the possible number for UOP1;
+		List<Integer> y = new ArrayList<Integer>();
+		// This list is going to store the possible for the O1
+		List<Integer> z = new ArrayList<Integer>();
+		// This list is going to store the possible number for OP1;
+		List<Integer> w = new ArrayList<Integer>();
+		// This list is going to store our expectation.
+		List<Double> expected = new ArrayList<Double>();
+		
+		// Setup max, min, and nom **ASSUMPTION: min = 0; max = 100
+		max = 100;
+		min = 0;
+		randA = 50;
+		randB = 50;
+		
+		// Add values to x
+		x = Arrays.asList(min-1,min,min+1,randA,max-1,max,max+1);
+		// Add values to y
+		y = Arrays.asList(min-1,min,min+1,randB,max-1,max,max+1);
+		// Add values to z
+		z = Arrays.asList(min-1,min,min+1,randA,max-1,max,max+1);
+		// Add values to w
+		w = Arrays.asList(min-1,min,min+1,randB,max-1,max,max+1);
+	
+		// Add expected value using the testset in the document.
+		for(int i = 0; i < x.size(); i++)
+		{
+			for(int j = 0; j < y.size(); j++)
+			{
+				for(int h = 0; h < z.size(); h++)
+				{
+					for(int u = 0; u < w.size(); u++)
+					{
+						if(x.get(i) >= min && x.get(i) <= max // uo1
+								&& y.get(j) >= min && y.get(j) <= max // uop1
+								&& z.get(h) >= min && z.get(h) <= max // o1
+								&& w.get(u) >= min && w.get(u) <= max) //
+						{
+							double lengthTemp = z.get(h).doubleValue() + w.get(u).doubleValue();
+							double vocabularyTemp = x.get(i).doubleValue() + y.get(j).doubleValue();
+							expected.add(lengthTemp * (Math.log(vocabularyTemp)/Math.log(2)));
+						}
+						else
+						{
+							expected.add(-1.0);
+						}
+					}
+				}
+			}
+		}
+		
+		// Interator for expect list.
+		int iter1 = 0;
+		
+		// Running test (Cross product)
+		
+		for(int i = 0; i < x.size(); i++)
+		{
+			for(int j = 0; j < y.size(); j++)
+			{
+				for(int h = 0; h < z.size(); h++)
+				{
+					for(int u = 0; u < w.size(); u++)
+					{
+						doReturn(x.get(i)).when(part2).getTotalUniqueOperator();
+						doReturn(y.get(j)).when(part2).getTotalUniqueOperand();
+						doReturn(z.get(h)).when(part2).getTotalNotUniqueOperator();
+						doReturn(w.get(u)).when(part2).getTotalNotUniqueOperand();
+						assertEquals(Math.round(expected.get(iter1)),Math.round((Double)part2.getVolume()));
+						iter1++;
+					}
+				}
+			}
+		}
+	}
+	
+	@Test
+	public void testDifficulty_BlackBox_BoundaryValueAnalysis() throws Exception
+	{
+		/**********
+		 * Step 1: Using the the ***MOCK*** and the values from the TestSet to test the method
+		 **********/
+		// Create a new spy
+		MethodLimitCheck part2 = spy(new MethodLimitCheck());
+		
+		// This list is going to store the possible for the O1
+		List<Integer> x = new ArrayList<Integer>();
+		// This list is going to store the possible number for OP1;
+		List<Integer> y = new ArrayList<Integer>();
+		// This list is going to store our expectation.
+		List<Double> expected = new ArrayList<Double>();
+		
+		// Setup max, min, and nom **ASSUMPTION: min = 0; max = 100
+		max = 100;
+	    min = 0;
+	    randA = 50;
+	    randB = 50;
+		
+		// Add values to x
+		x = Arrays.asList(min-1,min,min+1,randA,max-1,max,max+1);
+		// Add values to y
+		y = Arrays.asList(min-1,min,min+1,randB,max-1,max,max+1);
+		// Add expected value using the testset in the document.
+		for(int i = 0; i < x.size(); i++)
+		{
+			for(int j = 0; j < y.size(); j++)
+			{
+				if(x.get(i) > min && x.get(i) <= max && y.get(j) >= min && y.get(j) <= max)
+				{
+					expected.add(((x.get(i).doubleValue() / 2) * y.get(j).doubleValue()) / x.get(i).doubleValue());	
+				}
+				else
+				{
+					expected.add(-1.0);	
+				}
+			}
+		}
+		
+		// Interator for expect list.
+		int iter1 = 0;
+		
+		// Running test (Cross product)
+		for(int i = 0; i < x.size(); i++)
+		{
+			for(int j = 0; j < y.size(); j++)
+			{
+				doReturn(x.get(i)).when(part2).getTotalUniqueOperator();
+				doReturn(y.get(j)).when(part2).getTotalNotUniqueOperand();
+				assertEquals(Math.round(expected.get(iter1)),Math.round((Double)part2.getDifficulty()));
+				iter1++;
+			}
+		}
+	}
+	
+	@Test
+	public void testVolume_WhiteBox_CFG() throws Exception
+	{
+		
+	}
+	
+	@Test
+	public void testDifficulty_WhiteBox_CFG() throws Exception
+	{
+		
+	}
+	
 	/*************************************************************************/
 	
 	/*********************************MINH NGUYEN*****************************/

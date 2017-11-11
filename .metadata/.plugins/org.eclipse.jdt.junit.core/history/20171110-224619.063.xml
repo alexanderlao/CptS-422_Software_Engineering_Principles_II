@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestMethodLimit" project="net.sf.eclipsecs.sample" tests="19" started="19" failures="0" errors="0" ignored="0">
+  <testsuite name="testing.TestMethodLimit" time="3.089">
+    <testcase name="checkGetDetailASTsForTypeInBranch" classname="testing.TestMethodLimit" time="0.24"/>
+    <testcase name="UsabilityTesting" classname="testing.TestMethodLimit" time="0.001"/>
+    <testcase name="checkEffortWithVolume" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="testToString" classname="testing.TestMethodLimit" time="0.007"/>
+    <testcase name="checkVocab" classname="testing.TestMethodLimit" time="0.026"/>
+    <testcase name="checkProcess" classname="testing.TestMethodLimit" time="0.007"/>
+    <testcase name="testDifficulty_UnitTest" classname="testing.TestMethodLimit" time="0.007"/>
+    <testcase name="checkTotalOperator" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="dummy" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="checkEffort" classname="testing.TestMethodLimit" time="1.42"/>
+    <testcase name="testDifficultyWithOperatorsAndOperands_IntegrationTest" classname="testing.TestMethodLimit" time="0.007"/>
+    <testcase name="checkLength" classname="testing.TestMethodLimit" time="0.012"/>
+    <testcase name="checkUniqueOperand" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="checkTotalOperand" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="testVolume_UnitTest" classname="testing.TestMethodLimit" time="0.009"/>
+    <testcase name="checkEffortWithDifficulty" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="testVolumeWithLengthAndVocab_IntegrationTest" classname="testing.TestMethodLimit" time="0.007"/>
+    <testcase name="testVolume_BlackBox_BoundaryValueAnalysis" classname="testing.TestMethodLimit" time="1.346"/>
+    <testcase name="checkUniqueOperator" classname="testing.TestMethodLimit" time="0.0"/>
+  </testsuite>
+</testrun>
