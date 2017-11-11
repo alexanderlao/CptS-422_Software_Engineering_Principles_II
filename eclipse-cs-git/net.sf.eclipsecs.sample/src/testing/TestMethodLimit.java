@@ -55,84 +55,117 @@ public class TestMethodLimit
 	// Halstead Volume is the program length (N) 
 	// times the log2 of the program vocabulary (n) [1,2] : Volume = N log2 n
 	@Test
-	public void testVolume() throws Throwable
+	public void testVolume_UnitTest() throws Throwable
 	{
-		/*
-		// assuming getLength() and getVocabulary() are both tested
+		/**********
+		 * Step 1: Read in a TestCase*.java file and parse it into a DetailAST *
+		 **********/
 		DetailAST caseOneAST = getAST("TestCaseOne.java");
-		double caseOneOutput = MethodLimitCheck.getLength(caseOneAST) * 
-							   (Math.log(MethodLimitCheck.getVocabulary(caseOneAST))/Math.log(2));
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");	
+		
+		// Create a spy.
+		MethodLimitCheck part1 = spy(new MethodLimitCheck());
+		/**********/
+		
+		/**********
+		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
+		 **********/
+		// assuming getLength() and getVocabulary() are both tested
+		double caseOneOutput = part1.getLength(caseOneAST) * 
+							   (Math.log(part1.getVocabulary(caseOneAST))/Math.log(2));
 		assertEquals(25, Math.round(caseOneOutput));
 		
-		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
-		double caseTwoOutput = MethodLimitCheck.getLength(caseTwoAST) * 
-				   			   (Math.log(MethodLimitCheck.getVocabulary(caseTwoAST))/Math.log(2));
+		double caseTwoOutput = part1.getLength(caseTwoAST) * 
+				   			   (Math.log(part1.getVocabulary(caseTwoAST))/Math.log(2));
 		assertEquals(5, Math.round(caseTwoOutput));
 		
-		DetailAST caseThreeAST = getAST("TestCaseThree.java");
-		double caseThreeOutput = MethodLimitCheck.getLength(caseThreeAST) * 
-				   				 (Math.log(MethodLimitCheck.getVocabulary(caseThreeAST))/Math.log(2));
+		double caseThreeOutput = part1.getLength(caseThreeAST) * 
+				   				 (Math.log(part1.getVocabulary(caseThreeAST))/Math.log(2));
 		assertEquals(693, Math.round(caseThreeOutput));
-		*/
+		
 	}
 	
 	// Halstead Difficulty is half of the unique operators 
 	// multiplied by the total number of operands, 
 	// divided by the number of distinct operators [1,2]
 	@Test
-	public void testDifficulty() throws Throwable
+	public void testDifficulty_UnitTest() throws Throwable
 	{
-		/*
-		// assuming getUniqueOperators() and getTotalOperands() are both tested
+		/**********
+		 * Step 1: Read in a TestCase*.java file and parse it into a DetailAST *
+		 **********/
 		DetailAST caseOneAST = getAST("TestCaseOne.java");
-		double caseOneUniqueOperators = MethodLimitCheck.getTotalUniqueOperator(caseOneAST);
-		double caseOneTotalOperands = MethodLimitCheck.getTotalNotUniqueOperand(caseOneAST);
+		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");	
+		
+		// Create a spy.
+		MethodLimitCheck part1 = spy(new MethodLimitCheck());
+		/**********/
+		
+		/**********
+		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
+		 **********/
+		// assuming getUniqueOperators() and getTotalOperands() are both tested
+		double caseOneUniqueOperators = part1.getTotalUniqueOperator(caseOneAST);
+		double caseOneTotalOperands = part1.getTotalNotUniqueOperand(caseOneAST);
 		double caseOneOutput = ((caseOneUniqueOperators / 2) * caseOneTotalOperands) / caseOneUniqueOperators;
 		assertEquals(4, Math.round(caseOneOutput));
 		
-		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
-		double caseTwoUniqueOperators = MethodLimitCheck.getTotalUniqueOperator(caseTwoAST);
-		double caseTwoTotalOperands = MethodLimitCheck.getTotalNotUniqueOperand(caseTwoAST);
+		double caseTwoUniqueOperators = part1.getTotalUniqueOperator(caseTwoAST);
+		double caseTwoTotalOperands = part1.getTotalNotUniqueOperand(caseTwoAST);
 		double caseTwoOutput = ((caseTwoUniqueOperators / 2) * caseTwoTotalOperands) / caseTwoUniqueOperators;
 		assertEquals(0, Math.round(caseTwoOutput));
 		
-		DetailAST caseThreeAST = getAST("TestCaseThree.java");
-		double caseThreeUniqueOperators = MethodLimitCheck.getTotalUniqueOperator(caseThreeAST);
-		double caseThreeTotalOperands = MethodLimitCheck.getTotalNotUniqueOperand(caseThreeAST);
+		double caseThreeUniqueOperators = part1.getTotalUniqueOperator(caseThreeAST);
+		double caseThreeTotalOperands = part1.getTotalNotUniqueOperand(caseThreeAST);
 		double caseThreeOutput = ((caseThreeUniqueOperators / 2) * caseThreeTotalOperands) / caseThreeUniqueOperators;
 		assertEquals(41, Math.round(caseThreeOutput));
-		*/
 	}
 	
 	// Integration Testing
 	@Test
-	public void testVolumeWithLengthAndVocab() throws Throwable  
+	public void testVolumeWithLengthAndVocab_IntegrationTest() throws Throwable  
 	{
-		/*
+		/**********
+		 * Step 1: Read in a TestCase*.java file and parse it into a DetailAST *
+		 **********/
 		DetailAST caseOneAST = getAST("TestCaseOne.java");
-		assertEquals(25, Math.round(MethodLimitCheck.getVolume(caseOneAST)));
-		
 		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
-		assertEquals(5, Math.round(MethodLimitCheck.getVolume(caseTwoAST)));
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");	
 		
-		DetailAST caseThreeAST = getAST("TestCaseThree.java");
-		assertEquals(693, Math.round(MethodLimitCheck.getVolume(caseThreeAST)));	
-		*/
+		// Create a spy.
+		MethodLimitCheck part1 = spy(new MethodLimitCheck());
+		/**********/
+		
+		/**********
+		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
+		 **********/
+		assertEquals(25, Math.round(part1.getVolume(caseOneAST)));
+		assertEquals(5, Math.round(part1.getVolume(caseTwoAST)));
+		assertEquals(693, Math.round(part1.getVolume(caseThreeAST)));
 	}
 
 	@Test
-	public void testDifficultyWithOperatorsAndOperands() throws Throwable 
+	public void testDifficultyWithOperatorsAndOperands_IntegrationTest() throws Throwable 
 	{
-		/*
+		/**********
+		 * Step 1: Read in a TestCase*.java file and parse it into a DetailAST *
+		 **********/
 		DetailAST caseOneAST = getAST("TestCaseOne.java");
-		assertEquals(4, Math.round(MethodLimitCheck.getDifficulty(caseOneAST)));
-		
 		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
-		assertEquals(0, Math.round(MethodLimitCheck.getDifficulty(caseTwoAST)));
+		DetailAST caseThreeAST = getAST("TestCaseThree.java");	
 		
-		DetailAST caseThreeAST = getAST("TestCaseThree.java");
-		assertEquals(41, Math.round(MethodLimitCheck.getDifficulty(caseThreeAST)));
-		*/
+		// Create a spy.
+		MethodLimitCheck part1 = spy(new MethodLimitCheck());
+		/**********/
+		
+		/**********
+		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
+		 **********/
+		assertEquals(4, Math.round(part1.getDifficulty(caseOneAST)));
+		assertEquals(-1, Math.round(part1.getDifficulty(caseTwoAST)));
+		assertEquals(41, Math.round(part1.getDifficulty(caseThreeAST)));
 	}
 	/*************************************************************************/
 	

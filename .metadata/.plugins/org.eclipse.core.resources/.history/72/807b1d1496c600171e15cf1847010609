@@ -1,0 +1,1056 @@
+package net.sf.eclipsecs.sample.checks;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Test;
+
+import com.puppycrawl.tools.checkstyle.api.*;
+
+import antlr.collections.ASTEnumeration;
+
+public class MethodLimitCheck extends AbstractCheck {
+
+	
+    private int max = 100;
+    private int min = 0;
+    private static int test = 0;
+    private static boolean isProcessed = false;
+
+    // Variables
+    private static List <DetailAST> totalNotUniqueOperator;
+    private static List <DetailAST> totalNotUniqueOperand;
+    private static List <DetailAST> totalUniqueOperator;
+    private static List <DetailAST> totalUniqueOperand;
+    private static List<Integer> operatorList;
+    private static List<Integer> operandList;
+  
+    // Check for process
+    static boolean check = false;
+
+    /************************ Section 1: GETTER ********************/
+    /*
+     * This section contain the code of getters.
+     * Ideally, the functions, which are in this section, should be used
+     * if we want to get the values (number of operator, number of operand,
+     * volume,effort,difficulty,length,vocabulary) from a specific 
+     * DetailAST.
+     */
+    
+    /*
+     * Get total number of not unique operator based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of not unique operator if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public int getTotalNotUniqueOperator(DetailAST root)
+    {
+    	if(process(root))
+    	{
+    		return getTotalNotUniqueOperator();
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    	
+    }
+    
+    /*
+     * Get total number of not unique operand based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of not unique operand if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public int getTotalNotUniqueOperand(DetailAST root)
+    {
+    	if(process(root))
+    	{
+    		return getTotalNotUniqueOperand();
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    	
+    }
+    
+    /*
+     * Get total number of unique operator based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of unique operator if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public int getTotalUniqueOperator(DetailAST root)
+    {
+    	
+    	if(process(root))
+    	{
+    		return getTotalUniqueOperator();
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get total number of unique operand based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of unique operand if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public int getTotalUniqueOperand(DetailAST root)
+    {	
+    	if(process(root))
+    	{
+    		return getTotalUniqueOperand();
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the length based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the length if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public int getLength(DetailAST root)
+    {	
+    	if(process(root))
+    	{
+    		if(getTotalNotUniqueOperator() < min ||  getTotalNotUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalNotUniqueOperand() < min ||  getTotalNotUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return getTotalNotUniqueOperator() + getTotalNotUniqueOperand();
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the vocabulary based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the vocabulary if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public int getVocabulary(DetailAST root)
+    {	
+    	if(process(root))
+    	{
+    		if(getTotalUniqueOperator() < min ||  getTotalUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperand() < min ||  getTotalUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return getTotalUniqueOperator() + getTotalUniqueOperand();
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the number of operator based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of operator h if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public int getNumberOperators(DetailAST root)
+    {	
+    	if(process(root))
+    	{
+    		if(getTotalNotUniqueOperator() < min || getTotalNotUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return getTotalNotUniqueOperator();
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the number of operand based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of operand h if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public int getNumberOperand(DetailAST root)
+    {	
+    	if(process(root))
+    	{
+    		if(getTotalNotUniqueOperand() < min || getTotalNotUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return getTotalNotUniqueOperand();
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the volume based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the volume if the DetailAST is processed,
+     * 			Otherwise, return -1;
+     *  
+     */
+    public double getVolume(DetailAST root)
+    {
+    	
+    	if(process(root))
+    	{
+    		if(getTotalNotUniqueOperator() < min ||  getTotalNotUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalNotUniqueOperand() < min ||  getTotalNotUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperator() < min ||  getTotalUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperand() < min ||  getTotalUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return findVolume(getTotalNotUniqueOperator() + getTotalNotUniqueOperand(),
+        			getTotalUniqueOperator() + getTotalUniqueOperand());
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the difficulty based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the difficulty if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public double getDifficulty(DetailAST root)
+    {
+    	if(process(root))
+    	{
+    		if(getTotalNotUniqueOperand() < min || getTotalNotUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperator() < min || getTotalUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return findDifficulty(getTotalUniqueOperator(),getTotalNotUniqueOperand());
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the effort based on the DetailAST root
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the effort if the DetailAST is processed,
+     * 			Otherwise, return -1; 
+     * 
+     */
+    public double getEffort(DetailAST root)
+    {	
+    	if(process(root))
+    	{
+    		if(getTotalNotUniqueOperator() < min  ||  getTotalNotUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalNotUniqueOperand() < min  ||  getTotalNotUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperator() < min ||  getTotalUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperand() < min ||  getTotalUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return findEffort(findDifficulty(getTotalUniqueOperator(),getTotalNotUniqueOperand())
+        			,findVolume(getTotalNotUniqueOperator() + getTotalNotUniqueOperand()
+    				,getTotalUniqueOperator() + getTotalUniqueOperand()));
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Check whether the AST can be processed or not.
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return true if the DetailAST is processed,
+     * 			Otherwise, return false; 
+     * 
+     */
+    public boolean getDoneProcessing(DetailAST root)
+    {
+    	return process(root);
+    }
+    
+    /*
+     * Process DetailAST root and return all the values (number of operator, number of operand,
+     * volume,effort,difficulty,length,vocabulary) as a string.
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the string of all the values if the DetailAST is processed,
+     * 			Otherwise, return error message; 
+     * 
+     */
+    public String ToString(DetailAST root)
+    {
+    	if(process(root))
+    	{
+	    	return 
+	    		  "Halstead Length: " + getLength() +"\n"
+	    		+ "Halstead Vocabulary: " + getVocabulary() +"\n"
+	    		+ "Total Number of operators: " + getNumberOperators() +"\n"
+	    		+ "Total Number of operands: " + getNumberOperand() +"\n"
+	    		+ "Halstead Volume: " + getVolume()+"\n"
+	    		+ "Halstead Difficulty: " + getDifficulty() +"\n"
+	    		+ "Halstead Effort: " + getEffort() +"\n";
+    	}
+    	else
+    	{
+    		return "[ERROR]: Can't Process The AST";
+    	}
+    }
+    /***************************************************************/
+    
+    /************************ Section 2: MOCKING *******************/
+    /*
+     * This section contain the code of getters, but it is different from section 1.
+     * Ideally, the functions, which are in this section, should be used
+     * if we want to mock the values (number of operator, number of operand,
+     * volume,effort,difficulty,length,vocabulary) from a specific 
+     * DetailAST. However, those function can also be used as a
+     * normal getter for the current AST which is being read and processed
+     * by our program.
+     */
+    
+    /*
+     * Get total number of not unique operator based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of not unique operator if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     * 
+     */
+    public int getTotalNotUniqueOperator()
+    {
+    	if(getDoneProcessing())
+    	{
+    		return totalNotUniqueOperator.size();
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get total number of not unique operand based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of not unique operand if the DetailAST is processed,
+     *			Otherwise, return -1.			
+     * 			 
+     */
+    public int getTotalNotUniqueOperand()
+    {
+    	if(getDoneProcessing())
+    	{
+    		return totalNotUniqueOperand.size();  	
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get total number of unique operator based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of unique operator if the DetailAST is processed,
+     *			Otherwise, return -1.			
+     * 
+     */
+    public int getTotalUniqueOperator()
+    {
+    	if(getDoneProcessing())
+    	{
+    		return totalUniqueOperator.size();
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get total number of unique operand based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of unique operand if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     * 
+     */
+    public int getTotalUniqueOperand()
+    {
+    	if(getDoneProcessing())
+    	{
+    		return totalUniqueOperand.size();
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the length based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the length if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     * 			
+     */
+    public int getLength()
+    {
+    	if(getDoneProcessing())
+    	{	
+    		if(getTotalNotUniqueOperator() < min ||  getTotalNotUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalNotUniqueOperand() < min ||  getTotalNotUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return getTotalNotUniqueOperator() + getTotalNotUniqueOperand();
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the vocabulary based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the vocabulary if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     * 			 
+     */
+    public int getVocabulary()
+    {
+    	if(getDoneProcessing())
+    	{
+    		if(getTotalUniqueOperator() < min ||  getTotalUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperand() < min ||  getTotalUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return getTotalUniqueOperator() + getTotalUniqueOperand();
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the number of operator based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of operator h if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     *  			
+     */
+    public int getNumberOperators()
+    {
+    	if(getDoneProcessing())
+    	{
+    		if(getTotalNotUniqueOperator() < min || getTotalNotUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return getTotalNotUniqueOperator();
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the number of operand based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the number of operand h if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     *  			
+     */
+    public int getNumberOperand()
+    {
+    	if(getDoneProcessing())
+    	{
+    		if(getTotalNotUniqueOperand() < min || getTotalNotUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return getTotalNotUniqueOperand();
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the volume based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the volume if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     *  			 
+     */
+    public double getVolume()
+    {
+    	if(getDoneProcessing())
+    	{
+    		if(getTotalNotUniqueOperator() < min  ||  getTotalNotUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalNotUniqueOperand() < min ||  getTotalNotUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperator() < min ||  getTotalUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperand() < min ||  getTotalUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return findVolume(getTotalNotUniqueOperator() + getTotalNotUniqueOperand(),
+        			getTotalUniqueOperator() + getTotalUniqueOperand());
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the difficulty based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the difficulty if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     * 	
+     */
+    public double getDifficulty()
+    {
+    	if(getDoneProcessing())
+    	{
+    		if(getTotalNotUniqueOperand() < min ||  getTotalNotUniqueOperand() > max)
+    		{
+    			return -2;
+    		}
+    		else if(getTotalUniqueOperator() < min ||  getTotalUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return findDifficulty(getTotalUniqueOperator(),getTotalNotUniqueOperand());
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the effort based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the effort if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     *  			
+     */
+    public double getEffort()
+    {
+    	if(getDoneProcessing())
+    	{
+    		if(getTotalNotUniqueOperator() < min ||  getTotalNotUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalNotUniqueOperand() < min ||  getTotalNotUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperator() < min  ||  getTotalUniqueOperator() > max)
+    		{
+    			return -1;
+    		}
+    		else if(getTotalUniqueOperand() < min  ||  getTotalUniqueOperand() > max)
+    		{
+    			return -1;
+    		}
+    		else
+    		{
+    			return findEffort(findDifficulty(getTotalUniqueOperator(),getTotalNotUniqueOperand())
+        			,findVolume(getTotalNotUniqueOperator() + getTotalNotUniqueOperand()
+    				,getTotalUniqueOperator() + getTotalUniqueOperand()));
+    		}
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    /*
+     * Get the effort based on the current DetailAST 
+     * that is read and process by the program
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the effort if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     *  			
+     */
+    public boolean getDoneProcessing()
+    {
+    	return isProcessed;
+    }
+    
+    /*
+     * Process the current DetailAST that is read by the program
+     * and return all the values (number of operator, number of operand,
+     * volume,effort,difficulty,length,vocabulary) as a string.
+     * 
+     * @param root is a DetailAST that is parsed from a file.
+     * @return the string of all the values if the DetailAST is processed,
+     * 			Otherwise, return -1.			
+     *  			 
+     */
+    public String ToString()
+    {
+    	return 
+    		  "Halstead Length: " + getLength() +"\n"
+    		+ "Halstead Vocabulary: " + getVocabulary() +"\n"
+    		+ "Total Number of operators: " + getNumberOperators() +"\n"
+    		+ "Total Number of operands: " + getNumberOperand() +"\n"
+    		+ "Halstead Volume: " + getVolume()+"\n"
+    		+ "Halstead Difficulty: " + getDifficulty() +"\n"
+    		+ "Halstead Effort: " + getEffort() +"\n";
+    }
+    /***************************************************************/
+    
+    /************************ Section 3: TOSTRING ******************/
+    public String LengthToString()
+    {
+    	if(getTotalNotUniqueOperator() < 0)
+    	{
+    		return "Error, invalid total number of operator.";
+    	}
+    	else if(getTotalNotUniqueOperand() < 0)
+    	{
+    		return "Error, invalid total number of operand.";
+    	}
+    	else
+    	{
+    		return "Halstead Length: " +  (totalNotUniqueOperator.size() + totalNotUniqueOperand.size());
+    	}
+    }
+    
+    public String VocabToString()
+    {
+    	if(totalUniqueOperator.size() < 0)
+    	{
+    		return "Error, invalid total unique number of operator.";
+    	}
+    	else if(totalUniqueOperand.size() < 0)
+    	{
+    		return "Error, invalid total unique number of operand.";
+    	}
+    	else
+    	{	
+    		return "Halstead Vocabulary: " + (totalUniqueOperator.size() + totalUniqueOperand.size());
+    	}
+    }
+    
+    public String TotalNumbeOfOperatorToString()
+    {
+    	if(totalNotUniqueOperator.size() < 0)
+    	{
+    		return "Error, invalid total number of operator.";
+    	}
+    	else
+    	{
+    		return "Total Number of operators: " + totalNotUniqueOperator.size();
+    	}
+    }
+    
+    public String TotalNumbeOfOperandToString()
+    {
+    	if(totalNotUniqueOperand.size() < 0)
+    	{
+    		return "Error, invalid total number of operand.";
+    	}
+    	else
+    	{
+    		return "Total Number of operands: " + totalNotUniqueOperand.size();
+    	}
+    }
+    
+    public String VolumeToString()
+    {
+    	if(totalNotUniqueOperator.size() < 0)
+    	{
+    		return "Error, invalid total number of operator.";
+    	}
+    	else if(totalNotUniqueOperand.size() < 0)
+    	{
+    		return "Error, invalid total number of operand.";
+    	}
+    	else if(totalUniqueOperator.size() < 0)
+    	{
+    		return "Error, invalid total unique number of operator.";
+    	}
+    	else if(totalUniqueOperand.size() < 0)
+    	{
+    		return "Error, invalid total unique number of operand.";
+    	}
+    	else
+    	{
+    		return "Halstead Volume: " + findVolume(totalNotUniqueOperator.size() + totalNotUniqueOperand.size()
+    		,totalUniqueOperator.size() + totalUniqueOperand.size());
+    	}
+    }
+    
+    public String DifficultyToString()
+    {
+    	if(totalNotUniqueOperand.size() < 0)
+    	{
+    		return "Error, invalid total number of operand.";
+    	}
+    	else if(totalUniqueOperator.size() < 0)
+    	{
+    		return "Error, invalid total unique number of operator.";
+    	}
+    	else
+    	{
+    		return "Halstead Difficulty: " + findDifficulty(totalUniqueOperator.size(),totalNotUniqueOperand.size());
+    	}
+    }
+    
+    public String EfforToString()
+    {
+    	if(totalNotUniqueOperator.size() < 0)
+    	{
+    		return "Error, invalid total number of operator.";
+    	}
+    	else if(totalNotUniqueOperand.size() < 0)
+    	{
+    		return "Error, invalid total number of operand.";
+    	}
+    	else if(totalUniqueOperator.size() < 0)
+    	{
+    		return "Error, invalid total unique number of operator.";
+    	}
+    	else if(totalUniqueOperand.size() < 0)
+    	{
+    		return "Error, invalid total unique number of operand.";
+    	}
+    	return "Halstead Effort: " + findEffort(findDifficulty(totalUniqueOperator.size(),totalNotUniqueOperand.size()
+							),findVolume(totalNotUniqueOperator.size() + totalNotUniqueOperand.size()
+						,totalUniqueOperator.size() + totalUniqueOperand.size()));
+    }
+    /*****************************************************************/
+    
+    /***************COME WITH SAMPLE**********************/
+    @Override
+    public int[] getDefaultTokens() {
+        return new int[] { TokenTypes.CLASS_DEF, TokenTypes.INTERFACE_DEF };
+    }
+
+    public void setMax(int limit) {
+        max = limit;
+    }
+    /****************************************************/
+    
+    // Modified visitoken.
+    static List<Integer> totalTokenInObj = new ArrayList<Integer>();
+    @Override
+    public void visitToken(DetailAST aAST) 
+    {
+    	if(process(aAST))
+    	{
+	    	log(aAST.getLineNo(), "methodlimit", LengthToString() );
+	    	log(aAST.getLineNo(), "methodlimit", VocabToString());
+	    	log(aAST.getLineNo(), "methodlimit", TotalNumbeOfOperatorToString());
+	    	log(aAST.getLineNo(), "methodlimit", TotalNumbeOfOperandToString());
+	    	log(aAST.getLineNo(), "methodlimit", VolumeToString());
+	    	log(aAST.getLineNo(), "methodlimit", DifficultyToString());
+	    	log(aAST.getLineNo(), "methodlimit", EfforToString());    	
+    	}
+    	else
+    	{
+    		log(aAST.getLineNo(), "methodlimit", "ERROR");
+    	}
+    }
+    
+    /*********************************Helper Function *************************/
+   
+    
+    public static boolean process(DetailAST aAST)
+    {
+    	isProcessed = false;
+    	if(aAST == null)
+    	{
+    		return isProcessed;
+    	}
+    	operatorList = new ArrayList<Integer>();
+    	operatorList = Arrays.asList(TokenTypes.ASSIGN,TokenTypes.BAND,TokenTypes.BAND_ASSIGN,
+    			TokenTypes.BNOT,TokenTypes.BOR,TokenTypes.BOR_ASSIGN,TokenTypes.BSR,TokenTypes.BSR_ASSIGN,
+    			TokenTypes.BXOR,TokenTypes.BXOR_ASSIGN,TokenTypes.COLON,TokenTypes.COMMA,TokenTypes.DEC
+    			,TokenTypes.DIV,TokenTypes.DIV_ASSIGN,TokenTypes.DOT,TokenTypes.EQUAL,TokenTypes.GE
+    			,TokenTypes.GT,TokenTypes.INC,TokenTypes.INDEX_OP,TokenTypes.LAND,TokenTypes.LE
+    			,TokenTypes.LITERAL_INSTANCEOF,TokenTypes.LNOT,TokenTypes.LOR,TokenTypes.LT
+    			,TokenTypes.MINUS,TokenTypes.MINUS_ASSIGN,TokenTypes.MOD,TokenTypes.MOD_ASSIGN
+    			,TokenTypes.NOT_EQUAL,TokenTypes.PLUS,TokenTypes.PLUS_ASSIGN,TokenTypes.POST_DEC
+    			,TokenTypes.POST_INC,TokenTypes.QUESTION,TokenTypes.SL,TokenTypes.SL_ASSIGN
+    			,TokenTypes.SR,TokenTypes.SR_ASSIGN,TokenTypes.STAR,TokenTypes.STAR_ASSIGN
+    			,TokenTypes.UNARY_MINUS,TokenTypes.UNARY_PLUS);
+    	
+    	operandList = new ArrayList<Integer>();
+    	operandList = Arrays.asList(TokenTypes.IDENT,TokenTypes.STRING_LITERAL
+    			,TokenTypes.CHAR_LITERAL, TokenTypes.LITERAL_TRUE,TokenTypes.LITERAL_FALSE
+    			,TokenTypes.LITERAL_NULL,TokenTypes.NUM_FLOAT,TokenTypes.NUM_INT,TokenTypes.NUM_DOUBLE
+    			,TokenTypes.NUM_LONG);
+    	
+    	totalNotUniqueOperator = new ArrayList<DetailAST>(); 
+    	for(int i = 0; i < operatorList.size(); i++)
+    	{
+    			totalNotUniqueOperator.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operatorList.get(i),false));
+    	}
+    	totalNotUniqueOperand = new ArrayList<DetailAST>(); 
+    	for(int i = 0; i < operandList.size(); i++)
+    	{
+    			totalNotUniqueOperand.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operandList.get(i),false));
+    	}
+    	totalUniqueOperator = new ArrayList<DetailAST>(); 
+    	for(int i = 0; i < operatorList.size(); i++)
+    	{
+    			totalUniqueOperator.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operatorList.get(i),true));
+    	}
+    	
+    	totalUniqueOperand = new ArrayList<DetailAST>(); 
+    	for(int i = 0; i < operandList.size(); i++)
+    	{
+    			totalUniqueOperand.addAll(getDetailASTsForTypeInBranch(aAST.findFirstToken(TokenTypes.OBJBLOCK),operandList.get(i),true));
+    	}
+    	isProcessed = true;
+    	return isProcessed;
+    }
+
+    private static double findVolume(double N, double n)
+    {
+    	if( N >= 0 && n >=0)
+    	{
+    		return ((double)N * (Math.log((double)n)/Math.log(2)));
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    private static double findEffort(double diff, double vol)
+    {
+    	if(diff != -1 && vol != -1)
+    	{
+    		return diff*vol;
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    private static double findDifficulty(double uniqueOperator,double totalOperand)
+    {
+    	if(uniqueOperator > 0 && totalOperand >= 0)
+    	{
+    		return (((double)uniqueOperator/2) * (double)totalOperand)/ (double)uniqueOperator;
+    	}
+    	else
+    	{
+    		return -1;
+    	}
+    }
+    
+    public static List<DetailAST> getDetailASTsForTypeInBranch(DetailAST expr,int tokenType, boolean unique) 
+    {
+    	return getDetailASTsForTypeInBranch(expr, tokenType, null,unique);
+    }
+
+    private static List<DetailAST> getDetailASTsForTypeInBranch(DetailAST expr,int tokenType, List<DetailAST> list, boolean unique) 
+    {
+        if (list == null)
+        {
+            list = new ArrayList<DetailAST>();
+        }
+        for(DetailAST child = (DetailAST) expr.getFirstChild(); child != null; child = (DetailAST) child.getNextSibling()) 
+        {                    
+            getDetailASTsForTypeInBranch(child, tokenType, list,unique); 
+            if(child.getType() == tokenType)
+            {
+            	if(!unique)
+            	{
+            		list.add(child);
+            	}
+            	else
+            	{
+            		boolean check = false;
+            		for(int i = 0; i < list.size();i++)
+            		{
+            			if(list.get(i).equals(child))
+            			{
+            				check = true;
+            			}
+            		}
+            		if(check == false)
+            		{
+            			list.add(child);
+            		}
+            	}
+            }
+        }
+        return list;
+    }
+    /**************************************************************************/
+}
+
+    
+    
+

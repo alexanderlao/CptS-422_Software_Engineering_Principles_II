@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestMethodLimit" project="net.sf.eclipsecs.sample" tests="18" started="18" failures="0" errors="0" ignored="0">
+  <testsuite name="testing.TestMethodLimit" time="1.812">
+    <testcase name="checkGetDetailASTsForTypeInBranch" classname="testing.TestMethodLimit" time="0.248"/>
+    <testcase name="UsabilityTesting" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="checkEffortWithVolume" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="testToString" classname="testing.TestMethodLimit" time="0.008"/>
+    <testcase name="checkVocab" classname="testing.TestMethodLimit" time="0.027"/>
+    <testcase name="checkProcess" classname="testing.TestMethodLimit" time="0.006"/>
+    <testcase name="testDifficulty_UnitTest" classname="testing.TestMethodLimit" time="0.009"/>
+    <testcase name="checkTotalOperator" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="dummy" classname="testing.TestMethodLimit" time="0.001"/>
+    <testcase name="checkEffort" classname="testing.TestMethodLimit" time="1.49"/>
+    <testcase name="testDifficultyWithOperatorsAndOperands_IntegrationTest" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="checkLength" classname="testing.TestMethodLimit" time="0.01"/>
+    <testcase name="checkUniqueOperand" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="checkTotalOperand" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="testVolume_UnitTest" classname="testing.TestMethodLimit" time="0.006"/>
+    <testcase name="checkEffortWithDifficulty" classname="testing.TestMethodLimit" time="0.0"/>
+    <testcase name="testVolumeWithLengthAndVocab_IntegrationTest" classname="testing.TestMethodLimit" time="0.005"/>
+    <testcase name="checkUniqueOperator" classname="testing.TestMethodLimit" time="0.001"/>
+  </testsuite>
+</testrun>
