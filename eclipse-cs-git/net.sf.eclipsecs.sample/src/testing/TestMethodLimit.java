@@ -60,7 +60,6 @@ public class TestMethodLimit
 	@Test
 	public void testVolume_UnitTest() throws Throwable
 	{
-<<<<<<< HEAD
 		/**********
 		 * Step 1: Read in a TestCase*.java file and parse it into a DetailAST *
 		 **********/
@@ -73,17 +72,41 @@ public class TestMethodLimit
 		/**********/
 		
 		/**********
-		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
+		 * Step 2: Using the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
 		 **********/
 		// assuming getLength() and getVocabulary() are both tested
+		/*
+		 *  For the first test case, we use  <O3,Op3,UO3,UOP3> from the TestSet to come up with a test case
+		 *  O3  = 2 (Not Unique Operator = 2)
+		 *  OP3 = 7 (Not Unique Operand = 7)
+		 *  UO3  = 1 (Unique Operator = 1)
+		 *  UOP3 = 6 (Unique Operand = 6)
+		 *  Expected: 25
+		 */
 		double caseOneOutput = part1.getLength(caseOneAST) * 
 							   (Math.log(part1.getVocabulary(caseOneAST))/Math.log(2));
 		assertEquals(25, Math.round(caseOneOutput));
 		
+		/*
+		 *  For the second test case, we use  <O3,Op3,UO3,UOP3> from the TestSet to come up with a test case
+		 *  O3  = 0 (Not Unique Operator = 0)
+		 *  OP3 = 3 (Not Unique Operand = 3)
+		 *  UO3  = 1 (Unique Operator = 0)
+		 *  UOP3 = 6 (Unique Operand = 3)
+		 *  Expected: 5
+		 */
 		double caseTwoOutput = part1.getLength(caseTwoAST) * 
 				   			   (Math.log(part1.getVocabulary(caseTwoAST))/Math.log(2));
 		assertEquals(5, Math.round(caseTwoOutput));
 		
+		/*
+		 *  For the third test case, we use <O3,Op3,UO3,UOP3> from the TestSet to come up with a test case
+		 *  O3  = 51 (Not Unique Operator = 51)
+		 *  OP3 = 81 (Not Unique Operand = 81)
+		 *  UO3  = 14 (Unique Operator = 14)
+		 *  UOP3 = 24 (Unique Operand = 24)
+		 *  Expected: 693
+		 */
 		double caseThreeOutput = part1.getLength(caseThreeAST) * 
 				   				 (Math.log(part1.getVocabulary(caseThreeAST))/Math.log(2));
 		assertEquals(693, Math.round(caseThreeOutput));
@@ -108,19 +131,37 @@ public class TestMethodLimit
 		/**********/
 		
 		/**********
-		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
+		 * Step 2: Using the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
 		 **********/
 		// assuming getUniqueOperators() and getTotalOperands() are both tested
+		/*
+		 *  For the first test case, we use <UO3,Op3> from the TestSet to come up with a test case
+		 *  UO3 = 1 (Unique Operator = 1)
+		 *  OP3 = 7 (Not Unique Operand = 7)
+		 *  Expected: 4
+		 */
 		double caseOneUniqueOperators = part1.getTotalUniqueOperator(caseOneAST);
 		double caseOneTotalOperands = part1.getTotalNotUniqueOperand(caseOneAST);
 		double caseOneOutput = ((caseOneUniqueOperators / 2) * caseOneTotalOperands) / caseOneUniqueOperators;
 		assertEquals(4, Math.round(caseOneOutput));
 		
+		/*
+		 *  For the second test case, we use <UO3,Op3> from the TestSet to come up with a test case
+		 *  UO3 = 0 (Unique Operator = 0)
+		 *  OP3 = 3 (Not Unique Operand = 3)
+		 *  Expected: -1
+		 */
 		double caseTwoUniqueOperators = part1.getTotalUniqueOperator(caseTwoAST);
 		double caseTwoTotalOperands = part1.getTotalNotUniqueOperand(caseTwoAST);
 		double caseTwoOutput = ((caseTwoUniqueOperators / 2) * caseTwoTotalOperands) / caseTwoUniqueOperators;
 		assertEquals(0, Math.round(caseTwoOutput));
 		
+		/*
+		 *  For the third test case, we use <O3,Op3> from the TestSet to come up with a test case
+		 *  UO3  = 14 (Not Unique Operator = 14)
+		 *  OP3 = 81 (Not Unique Operand = 81)
+		 *  Expected: 41
+		 */
 		double caseThreeUniqueOperators = part1.getTotalUniqueOperator(caseThreeAST);
 		double caseThreeTotalOperands = part1.getTotalNotUniqueOperand(caseThreeAST);
 		double caseThreeOutput = ((caseThreeUniqueOperators / 2) * caseThreeTotalOperands) / caseThreeUniqueOperators;
@@ -143,10 +184,40 @@ public class TestMethodLimit
 		/**********/
 		
 		/**********
-		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
+		 * Step 2: Using the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
 		 **********/
+		/*
+		 *  For the first test case, we use  <O3,Op3,UO3,UOP3> from the TestSet to come up with a test case
+		 *  O3  = 2 (Not Unique Operator = 2)
+		 *  OP3 = 7 (Not Unique Operand = 7)
+		 *  UO3  = 1 (Unique Operator = 1)
+		 *  UOP3 = 6 (Unique Operand = 6)
+		 *  Expected: 25
+		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
+		 */
 		assertEquals(25, Math.round(part1.getVolume(caseOneAST)));
+		
+		/*
+		 *  For the second test case, we use  <O3,Op3,UO3,UOP3> from the TestSet to come up with a test case
+		 *  O3  = 0 (Not Unique Operator = 0)
+		 *  OP3 = 3 (Not Unique Operand = 3)
+		 *  UO3  = 0 (Unique Operator = 0)
+		 *  UOP3 = 3 (Unique Operand = 3)
+		 *  Expected: 5
+		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
+		 */
 		assertEquals(5, Math.round(part1.getVolume(caseTwoAST)));
+		
+
+		/*
+		 *  For the third test case, we use  <O3,Op3,UO3,UOP3> from the TestSet to come up with a test case
+		 *  O3  = 51 (Not Unique Operator = 51)
+		 *  OP3 = 81 (Not Unique Operand = 81)
+		 *  UO3  = 14 (Unique Operator = 14)
+		 *  UOP3 = 24 (Unique Operand = 24)
+		 *  Expected: 693
+		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
+		 */
 		assertEquals(693, Math.round(part1.getVolume(caseThreeAST)));
 	}
 
@@ -167,8 +238,31 @@ public class TestMethodLimit
 		/**********
 		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the TestSet to test the method
 		 **********/
+		/*
+		 * 	For the first test case, we use <UO3,Op3> from the TestSet to come up with a test case
+		 *  UO3 = 1 (Unique Operator = 1)
+		 *  OP3 = 7 (Not Unique Operand = 7)
+		 *  Expected: 4
+		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
+		 */	
 		assertEquals(4, Math.round(part1.getDifficulty(caseOneAST)));
+		
+		/*
+		 * 	For the first test case, we use <UO3,Op3> from the TestSet to come up with a test case
+		 *  UO3 = 0 (Unique Operator = 0)
+		 *  OP3 = 3 (Not Unique Operand = 3)
+		 *  Expected: -1
+		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
+		 */
 		assertEquals(-1, Math.round(part1.getDifficulty(caseTwoAST)));
+		
+		/*
+		 * 	For the third test case, we use <UO3,Op3> from the TestSet to come up with a test case
+		 *  UO3  = 14 (Unique Operator = 14)
+		 *  OP3 = 81 (Not Unique Operand = 81)
+		 *  Expected: 41
+		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
+		 */
 		assertEquals(41, Math.round(part1.getDifficulty(caseThreeAST)));
 	}
 	
@@ -177,8 +271,18 @@ public class TestMethodLimit
 	public void testVolume_BlackBox_BoundaryValueAnalysis() throws Exception
 	{
 		/**********
-		 * Step 1: Using the the ***MOCK*** and the values from the TestSet to test the method
+		 * Using the ***MOCK*** and the values from the TestSet to test the method
 		 **********/
+		/*
+		 *  For the Black Box test case, we use <O*,OP*,UO*,UOp*> from the TestSet to come up with a test case
+		 *  O  = {-1,0,1,50,99,100,101} (Not Unique Operator)
+		 *  OP = {-1,0,1,50,99,100,101} (Not Unique Operand)
+		 *  UO  = {-1,0,1,50,99,100,101} (Unique Operator)
+		 *  UOP = {-1,0,1,50,99,100,101} (Unique Operand)
+		 *  Expected: {...} (2401 test frames)
+		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
+		 */
+		
 		// Create a new spy
 		MethodLimitCheck part2 = spy(new MethodLimitCheck());
 		
@@ -208,7 +312,7 @@ public class TestMethodLimit
 		// Add values to w
 		w = Arrays.asList(min-1,min,min+1,randB,max-1,max,max+1);
 	
-		// Add expected value using the testset in the document.
+		// Add expected value using the TestSet in the document.
 		for(int i = 0; i < x.size(); i++)
 		{
 			for(int j = 0; j < y.size(); j++)
@@ -235,7 +339,7 @@ public class TestMethodLimit
 			}
 		}
 		
-		// Interator for expect list.
+		// Iterator for expect list.
 		int iter1 = 0;
 		
 		// Running test (Cross product)
@@ -264,8 +368,17 @@ public class TestMethodLimit
 	public void testDifficulty_BlackBox_BoundaryValueAnalysis() throws Exception
 	{
 		/**********
-		 * Step 1: Using the the ***MOCK*** and the values from the TestSet to test the method
+		 * Using the ***MOCK*** and the values from the TestSet to test the method
 		 **********/
+		/*
+		 *  For the Black Box test case, we use <UO*,Op*> from the TestSet to come up with a test case
+		 *  UO  = {-1,0,1,50,99,100,101} (Not Unique Operator)
+		 *  OP = {-1,0,1,50,99,100,101} (Not Unique Operand)
+		 *  Expected: {-1,-1,-1,-1,-1,-1,-1,-1,0,1,50,99,100,-1,-1,1,2,51,100,101,-1,-1,50,51,100,149,150,-1,
+		 *  -1,99,100,149,198,199,-1,-1,100,101,150,199,200,-1}
+		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
+		 */
+		
 		// Create a new spy
 		MethodLimitCheck part2 = spy(new MethodLimitCheck());
 		
@@ -286,7 +399,7 @@ public class TestMethodLimit
 		x = Arrays.asList(min-1,min,min+1,randA,max-1,max,max+1);
 		// Add values to y
 		y = Arrays.asList(min-1,min,min+1,randB,max-1,max,max+1);
-		// Add expected value using the testset in the document.
+		// Add expected value using the TestSet in the document.
 		for(int i = 0; i < x.size(); i++)
 		{
 			for(int j = 0; j < y.size(); j++)
@@ -302,7 +415,7 @@ public class TestMethodLimit
 			}
 		}
 		
-		// Interator for expect list.
+		// Iterator for expect list.
 		int iter1 = 0;
 		
 		// Running test (Cross product)
@@ -321,230 +434,11 @@ public class TestMethodLimit
 	@Test
 	public void testVolume_WhiteBox_CFG() throws Exception
 	{
-		
-	}
-	
-	@Test
-	public void testDifficulty_WhiteBox_CFG() throws Exception
-	{
-		
-	}
-	
-	/*************************************************************************/
-	
-	/*********************************MINH NGUYEN*****************************/
-	/*
-     * This method is going to run junit on the method getLength().
-     * 
-     * @exception if something go wrong, then throws exception.	
-     * 
-     */
-	@Test
-	public void checkLength() throws Exception  
-	{
-=======
->>>>>>> master
-		///////////////// Boundary Testing ////////////////////////////
-		// There are two parts. The first part is step 1 - 3 (deli1),// 
-		// and the second part is step 4 (Black-box(deli2)) and 5    //
-		// (White-box(deli2)                                         //
-		///////////////////////////////////////////////////////////////
-		
-		/**********
-		 * Step 1: Read in a testcase*.java file and parse it into a DetailAST*
-		 **********/
-		DetailAST test1AST = getAST("TestCaseOne.java");
-		DetailAST test2AST = getAST("TestCaseTwo.java");
-		DetailAST test3AST = getAST("TestCaseThree.java");	
-		
-		// Create a spy.
-		MethodLimitCheck part1 = spy(new MethodLimitCheck());
-		/**********/
-		
-		
-		/**********
-		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the testset to test the method
-		 **********/
-		
-		/*
-		 *  For the first test case, we use  <O3,Op3,UO3,UOP3> from the testset to come up with a testcase
-		 *  O3  = 2 (Not Unique Operator = 2)
-		 *  OP3 = 7 (Not Unique Operand = 7)
-		 *  UO3  = 1 (Unique Operator = 1)
-		 *  UOP3 = 6 (Unique Operand = 6)
-		 *  Expected: 25
-		 */
-		assertEquals(25,Math.round((part1.getVolume(test1AST))));
-		
-		/*
-		 *  For the second test case, we use  <O3,Op3,UO3,UOP3> from the testset to come up with a testcase
-		 *  O3  = 0 (Not Unique Operator = 0)
-		 *  OP3 = 3 (Not Unique Operand = 3)
-		 *  UO3  = 1 (Unique Operator = 0)
-		 *  UOP3 = 6 (Unique Operand = 3)
-		 *  Expected: 5
-		 */
-		assertEquals(5,Math.round((part1.getVolume(test2AST))));	
-		
-		/*
-		 *  For the third test case, we use <O3,Op3,UO3,UOP3> from the testset to come up with a testcase
-		 *  O3  = 51 (Not Unique Operator = 51)
-		 *  OP3 = 81 (Not Unique Operand = 81)
-		 *  UO3  = 14 (Unique Operator = 14)
-		 *  UOP3 = 24 (Unique Operand = 24)
-		 *  Expected: 693
-		 */
-		assertEquals(693,Math.round((part1.getVolume(test3AST))));
-		
-		/**********/
-		
-		
-		/**********
-		 * Step 3: Using the the ***INTEGRATED TESTING METHOD*** and the values from the testset to test the method
-		 **********/
-		/*
-		 *  For the first test case, we use  <O3,Op3,UO3,UOP3> from the testset to come up with a testcase
-		 *  O3  = 2 (Not Unique Operator = 2)
-		 *  OP3 = 7 (Not Unique Operand = 7)
-		 *  UO3  = 1 (Unique Operator = 1)
-		 *  UOP3 = 6 (Unique Operand = 6)
-		 *  Expected: 25
-		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
-		 */
-		double N = part1.getTotalNotUniqueOperator(test1AST) + part1.getTotalNotUniqueOperand(test1AST);
-		double n = part1.getTotalUniqueOperator(test1AST) + part1.getTotalUniqueOperand(test1AST);
-		double result =	N * (Math.log((double)n)/Math.log(2));
-		assertEquals(Math.round(result),Math.round(part1.getVolume(test1AST)));	
-		
-		/*
-		 *  For the second test case, we use  <O3,Op3,UO3,UOP3> from the testset to come up with a testcase
-		 *  O3  = 0 (Not Unique Operator = 0)
-		 *  OP3 = 3 (Not Unique Operand = 3)
-		 *  UO3  = 0 (Unique Operator = 0)
-		 *  UOP3 = 3 (Unique Operand = 3)
-		 *  Expected: 5
-		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
-		 */
-		N = part1.getTotalNotUniqueOperator(test2AST) + part1.getTotalNotUniqueOperand(test2AST);
-		n = part1.getTotalUniqueOperator(test2AST) + part1.getTotalUniqueOperand(test2AST);
-		result = N * (Math.log((double)n)/Math.log(2));
-		assertEquals(Math.round(result),Math.round(part1.getVolume(test2AST)));	
-		
-		/*
-		 *  For the third test case, we use  <O3,Op3,UO3,UOP3> from the testset to come up with a testcase
-		 *  O3  = 51 (Not Unique Operator = 51)
-		 *  OP3 = 81 (Not Unique Operand = 81)
-		 *  UO3  = 14 (Unique Operator = 14)
-		 *  UOP3 = 24 (Unique Operand = 24)
-		 *  Expected: 693
-		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
-		 */
-		N = part1.getTotalNotUniqueOperator(test3AST) + part1.getTotalNotUniqueOperand(test3AST);
-		n = part1.getTotalUniqueOperator(test3AST) + part1.getTotalUniqueOperand(test3AST);
-		result = N * (Math.log((double)n)/Math.log(2));
-		assertEquals(Math.round(result),Math.round(part1.getVolume(test3AST)));	
-		
-		// Create a new spy for the next part.
-		MethodLimitCheck part2 = spy(new MethodLimitCheck());
-		
-		/**********/
-		
-		
-		/**********
-		 * Step 4: Using the the ***MOCK*** and the values from the testset to test the method
-		 **********/
-		/*
-		 *  For the fourth test case, we use <O*,OP*,UO*,UOp*> from the testset to come up with a testcase
-		 *  O  = {-1,0,1,50,99,100,101} (Not Unique Operator)
-		 *  OP = {-1,0,1,50,99,100,101} (Not Unique Operand)
-		 *  UO  = {-1,0,1,50,99,100,101} (Unique Operator)
-		 *  UOP = {-1,0,1,50,99,100,101} (Unique Operand)
-		 *  Expected: {...} (2401 test frames)
-		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
-		 */
-		// This list is going to store the possible for the UO1
-		List<Integer> x = new ArrayList<Integer>();
-		// This list is going to store the possible number for UOP1;
-		List<Integer> y = new ArrayList<Integer>();
-		// This list is going to store the possible for the O1
-		List<Integer> z = new ArrayList<Integer>();
-		// This list is going to store the possible number for OP1;
-		List<Integer> w = new ArrayList<Integer>();
-		// This list is going to store our expectation.
-		List<Double> expected = new ArrayList<Double>();
-		
-		// Setup max,min, and nom **ASSUMPTION: min = 0; max = 100
-		max = 100;
-		min = 0;
-		randA = 50;
-		randB = 50;
-		
-		// Add values to x
-		x = Arrays.asList(min-1,min,min+1,randA,max-1,max,max+1);
-		// Add values to y
-		y = Arrays.asList(min-1,min,min+1,randB,max-1,max,max+1);
-		// Add values to z
-		z = Arrays.asList(min-1,min,min+1,randA,max-1,max,max+1);
-		// Add values to w
-		w = Arrays.asList(min-1,min,min+1,randB,max-1,max,max+1);
-	
-		// Add expected value using the testset in the document.
-		for(int i = 0; i < x.size(); i++)
-		{
-			for(int j = 0; j < y.size(); j++)
-			{
-				for(int h = 0; h < z.size(); h++)
-				{
-					for(int u = 0; u < w.size(); u++)
-					{
-						if(x.get(i) >= min && x.get(i) <= max 
-								&& y.get(j) >= min && y.get(j) <= max 
-								&& z.get(h) >= min && z.get(h) <= max 
-								&& w.get(u) >= min && w.get(u) <= max) 
-						{
-							N = z.get(h).doubleValue() + w.get(u).doubleValue();
-							n = x.get(i).doubleValue() + y.get(j).doubleValue();
-							result = N * (Math.log((double)n)/Math.log(2));
-							expected.add(result);
-						}
-						else
-						{
-							expected.add(-1.0);
-						}
-					}
-				}
-			}
-		}
-		
-		// Interator for expect list.
-		int iter1 = 0;
-		
-		// Running test (Cross product)
-		
-		for(int i = 0; i < x.size(); i++)
-		{
-			for(int j = 0; j < y.size(); j++)
-			{
-				for(int h = 0; h < z.size(); h++)
-				{
-					for(int u = 0; u < w.size(); u++)
-					{
-						doReturn(x.get(i)).when(part2).getTotalUniqueOperator();
-						doReturn(y.get(j)).when(part2).getTotalUniqueOperand();
-						doReturn(z.get(h)).when(part2).getTotalNotUniqueOperator();
-						doReturn(w.get(u)).when(part2).getTotalNotUniqueOperand();
-						assertEquals(Math.round(expected.get(iter1)),Math.round((Double)part2.getVolume()));
-						iter1++;
-					}
-				}
-			}
-		}
-		
-		// Create a new spy for the next part.
+		// Create a new spy
 		MethodLimitCheck part3 = spy(new MethodLimitCheck());
 		
 		/**********
-		 * Step 5: Whitebox testing, please read the provided document.
+		 * White Box testing, please read the provided document.
 		 **********/
 		// Using test cases from the document
 		/*
@@ -553,6 +447,7 @@ public class TestMethodLimit
 		 */
 		doReturn(false).when(part3).getDoneProcessing();
 		assertEquals(-1,Math.round(part3.getVolume()));
+		
 		/*
 		 * T2
 	     * getDoneProcessing() = false
@@ -567,6 +462,7 @@ public class TestMethodLimit
 		doReturn(0).when(part3).getTotalUniqueOperator();
 		doReturn(0).when(part3).getTotalUniqueOperand();
 		assertEquals(-1,Math.round(part3.getVolume()));
+		
 		/*
 		 * T3
 	     * getDoneProcessing() = false
@@ -581,6 +477,7 @@ public class TestMethodLimit
 		doReturn(0).when(part3).getTotalUniqueOperator();
 		doReturn(0).when(part3).getTotalUniqueOperand();
 		assertEquals(-1,Math.round(part3.getVolume()));
+		
 		/*
 		 * T4
 	     * getDoneProcessing() = false
@@ -595,6 +492,7 @@ public class TestMethodLimit
 		doReturn(0).when(part3).getTotalUniqueOperator();
 		doReturn(0).when(part3).getTotalUniqueOperand();
 		assertEquals(-1,Math.round(part3.getVolume()));
+		
 		/*
 		 * T5
 	     * getDoneProcessing() = false
@@ -609,6 +507,7 @@ public class TestMethodLimit
 		doReturn(0).when(part3).getTotalUniqueOperator();
 		doReturn(0).when(part3).getTotalUniqueOperand();
 		assertEquals(-1,Math.round(part3.getVolume()));
+		
 		/*
 		 * T6
 	     * getDoneProcessing() = false
@@ -623,6 +522,7 @@ public class TestMethodLimit
 		doReturn(-40).when(part3).getTotalUniqueOperator();
 		doReturn(0).when(part3).getTotalUniqueOperand();
 		assertEquals(-1,Math.round(part3.getVolume()));
+		
 		/*
 		 * T7
 	     * getDoneProcessing() = false
@@ -637,6 +537,7 @@ public class TestMethodLimit
 		doReturn(101).when(part3).getTotalUniqueOperator();
 		doReturn(0).when(part3).getTotalUniqueOperand();
 		assertEquals(-1,Math.round(part3.getVolume()));
+		
 		/*
 		 * T8
 	     * getDoneProcessing() = false
@@ -651,6 +552,7 @@ public class TestMethodLimit
 		doReturn(0).when(part3).getTotalUniqueOperator();
 		doReturn(-2).when(part3).getTotalUniqueOperand();
 		assertEquals(-1,Math.round(part3.getVolume()));
+		
 		/*
 		 * T9
 	     * getDoneProcessing() = false
@@ -665,6 +567,7 @@ public class TestMethodLimit
 		doReturn(0).when(part3).getTotalUniqueOperator();
 		doReturn(101).when(part3).getTotalUniqueOperand();
 		assertEquals(-1,Math.round(part3.getVolume()));
+		
 		/*
 		 * T10
 	     * getDoneProcessing() = false
@@ -681,164 +584,14 @@ public class TestMethodLimit
 		assertEquals(795,Math.round(part3.getVolume()));
 	}
 	
-	// Halstead Difficulty is half of the unique operators 
-	// multiplied by the total number of operands, 
-	// divided by the number of distinct operators [1,2]
 	@Test
-	public void testDifficulty() throws Throwable
+	public void testDifficulty_WhiteBox_CFG() throws Exception
 	{
-		///////////////// Boundary Testing ////////////////////////////
-		// There are two parts. The first part is step 1 - 3 (deli1),// 
-		// and the second part is step 4 (Black-box(deli2)) and 5    //
-		// (White-box(deli2)                                         //
-		///////////////////////////////////////////////////////////////
-		
-		/**********
-		 * Step 1: Read in a testcase*.java file and parse it into a DetailAST*
-		 **********/
-		DetailAST test1AST = getAST("TestCaseOne.java");
-		DetailAST test2AST = getAST("TestCaseTwo.java");
-		DetailAST test3AST = getAST("TestCaseThree.java");	
-		
-		// Create a spy.
-		MethodLimitCheck part1 = spy(new MethodLimitCheck());
-		/**********/
-		
-		
-		/**********
-		 * Step 2: Using the the ***UNIT TESTING METHOD*** and the values from the testset to test the method
-		 **********/
-		
-		/*
-		 *  For the first test case, we use <UO3,Op3> from the testset to come up with a testcase
-		 *  UO3 = 1 (Unique Operator = 1)
-		 *  OP3 = 7 (Not Unique Operand = 7)
-		 *  Expected: 4
-		 */
-		assertEquals(4,Math.round(part1.getDifficulty(test1AST)));
-		
-		/*
-		 *  For the first test case, we use <UO3,Op3> from the testset to come up with a testcase
-		 *  UO3 = 0 (Unique Operator = 0)
-		 *  OP3 = 3 (Not Unique Operand = 3)
-		 *  Expected: -1
-		 */
-		assertEquals(-1,Math.round(part1.getDifficulty(test2AST)));
-		
-		/*
-		 *  For the third test case, we use <O3,Op3> from the testset to come up with a testcase
-		 *  UO3  = 14 (Not Unique Operator = 14)
-		 *  OP3 = 81 (Not Unique Operand = 81)
-		 *  Expected: 132
-		 */
-		assertEquals(41,Math.round(part1.getDifficulty(test3AST)));
-		
-		/**********/
-		
-		
-		/**********
-		 * Step 3: Using the the ***INTEGRATED TESTING METHOD*** and the values from the testset to test the method
-		 **********/
-		/*
-		 * 	For the first test case, we use <UO3,Op3> from the testset to come up with a testcase
-		 *  UO3 = 1 (Unique Operator = 1)
-		 *  OP3 = 7 (Not Unique Operand = 7)
-		 *  Expected: 4
-		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
-		 */	
-		double result = ((double)part1.getTotalUniqueOperator(test1AST) / 2) * ((double)part1.getTotalNotUniqueOperand(test1AST)/(double)part1.getTotalUniqueOperator(test1AST));	
-		assertEquals(Math.round(result),Math.round(part1.getDifficulty(test1AST)));	
-		
-		/*
-		 * 	For the first test case, we use <UO3,Op3> from the testset to come up with a testcase
-		 *  UO3 = 0 (Unique Operator = 0)
-		 *  OP3 = 3 (Not Unique Operand = 3)
-		 *  Expected: -1
-		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
-		 */
-		assertEquals(-1,Math.round(part1.getDifficulty(test2AST)));		
-		
-		/*
-		 * 	For the third test case, we use <UO3,Op3> from the testset to come up with a testcase
-		 *  UO3  = 14 (Unique Operator = 14)
-		 *  OP3 = 81 (Not Unique Operand = 81)
-		 *  Expected: 132
-		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
-		 */
-		result = ((double)part1.getTotalUniqueOperator(test3AST) / 2) * ((double)part1.getTotalNotUniqueOperand(test3AST)/(double)part1.getTotalUniqueOperator(test3AST));	
-		assertEquals(Math.round(result),Math.round(part1.getDifficulty(test3AST)));	
-		
-		// Create a new spy for the next part.
-		MethodLimitCheck part2 = spy(new MethodLimitCheck());
-		
-		/**********/
-		
-		/**********
-		 * Step 4: Using the the ***MOCK*** and the values from the testset to test the method
-		 **********/
-		/*
-		 *  For the fourth test case, we use <UO*,Op*> from the testset to come up with a testcase
-		 *  UO  = {-1,0,1,50,99,100,101} (Not Unique Operator)
-		 *  OP = {-1,0,1,50,99,100,101} (Not Unique Operand)
-		 *  Expected: {-1,-1,-1,-1,-1,-1,-1,-1,0,1,50,99,100,-1,-1,1,2,51,100,101,-1,-1,50,51,100,149,150,-1,
-		 *  -1,99,100,149,198,199,-1,-1,100,101,150,199,200,-1}
-		 *  Assumption:MethodLimitCheck.getTotalNotUniqueOperator() and MethodLimitCheck.getTotalNotUniqueOperand are tested.
-		 */
-		// This list is going to store the possible for the UO1
-		List<Integer> x = new ArrayList<Integer>();
-		// This list is going to store the possible number for OP1;
-		List<Integer> y = new ArrayList<Integer>();
-		// This list is going to store our expectation.
-		List<Double> expected = new ArrayList<Double>();
-		
-		// Setup max,min, and nom **ASSUMPTION: min = 0; max = 100
-		max = 100;
-		min = 0;
-		randA = 50;
-		randB = 50;
-		
-		// Add values to x
-		x = Arrays.asList(min-1,min,min+1,randA,max-1,max,max+1);
-		// Add values to y
-		y = Arrays.asList(min-1,min,min+1,randB,max-1,max,max+1);
-		// Add expected value using the testset in the document.
-		for(int i = 0; i < x.size(); i++)
-		{
-			for(int j = 0; j < y.size(); j++)
-			{
-				if(x.get(i) >= min && x.get(i) <= max
-						&& y.get(j) >= min && y.get(j) <= max && x.get(i) != 0)
-				{
-					result = (x.get(i).doubleValue() / 2) * (y.get(j).doubleValue()/x.get(i).doubleValue());						
-					expected.add(result);		
-				}
-				else
-				{
-					expected.add(-1.0);	
-				}
-			}
-		}
-		
-		// Interator for expect list.
-		int iter1 = 0;
-		
-		// Running test (Cross product)
-		for(int i = 0; i < x.size(); i++)
-		{
-			for(int j = 0; j < y.size(); j++)
-			{
-				doReturn(x.get(i)).when(part2).getTotalUniqueOperator();
-				doReturn(y.get(j)).when(part2).getTotalNotUniqueOperand();
-				assertEquals(Math.round(expected.get(iter1)),Math.round(part2.getDifficulty()));
-				iter1++;
-			}
-		}	
-		
-		// Create a new spy for the next part.
+		// Create a new spy
 		MethodLimitCheck part3 = spy(new MethodLimitCheck());
 		
 		/**********
-		 * Step 5: Whitebox testing, please read the provided document.
+		 * White Box testing, please read the provided document.
 		 **********/
 		// Using test cases from the document
 		/*
@@ -847,6 +600,7 @@ public class TestMethodLimit
 		 */
 		doReturn(false).when(part3).getDoneProcessing();
 		assertEquals(-1,Math.round(part3.getDifficulty()));
+		
 		/*
 		 * T2
 	     * getDoneProcessing() = false
@@ -857,6 +611,7 @@ public class TestMethodLimit
 		doReturn(-79).when(part3).getTotalNotUniqueOperand();
 		doReturn(0).when(part3).getTotalUniqueOperator();
 		assertEquals(-1,Math.round(part3.getDifficulty()));
+		
 		/*
 		 * T3
 	     * getDoneProcessing() = false
@@ -867,6 +622,7 @@ public class TestMethodLimit
 		doReturn(179).when(part3).getTotalNotUniqueOperand();
 		doReturn(0).when(part3).getTotalUniqueOperator();
 		assertEquals(-1,Math.round(part3.getDifficulty()));
+		
 		/*
 		 * T4
 	     * getDoneProcessing() = false
@@ -877,6 +633,7 @@ public class TestMethodLimit
 		doReturn(0).when(part3).getTotalNotUniqueOperand();
 		doReturn(-80).when(part3).getTotalUniqueOperator();
 		assertEquals(-1,Math.round(part3.getDifficulty()));
+		
 		/*
 		 * T5
 	     * getDoneProcessing() = false
@@ -887,6 +644,7 @@ public class TestMethodLimit
 		doReturn(0).when(part3).getTotalNotUniqueOperand();
 		doReturn(120).when(part3).getTotalUniqueOperator();
 		assertEquals(-1,Math.round(part3.getDifficulty()));
+		
 		/*
 		 * T6
 	     * getDoneProcessing() = false
@@ -897,6 +655,7 @@ public class TestMethodLimit
 		doReturn(50).when(part3).getTotalNotUniqueOperand();
 		doReturn(80).when(part3).getTotalUniqueOperator();
 		assertEquals(25,Math.round(part3.getDifficulty()));	
+		
 		/*
 		 * T7
 	     * getDoneProcessing() = false
@@ -907,44 +666,8 @@ public class TestMethodLimit
 		doReturn(50).when(part3).getTotalNotUniqueOperand();
 		doReturn(0).when(part3).getTotalUniqueOperator();
 		assertEquals(-1,Math.round(part3.getDifficulty()));
-
 	}
-	/*
-	 * Combined in to the checkVolume method.
-	 */
-	// Integration Testing
-	@Test
-	public void testVolumeWithLengthAndVocab() throws Throwable  
-	{
-		/*
-		DetailAST caseOneAST = getAST("TestCaseOne.java");
-		assertEquals(25, Math.round(MethodLimitCheck.getVolume(caseOneAST)));
-		
-		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
-		assertEquals(5, Math.round(MethodLimitCheck.getVolume(caseTwoAST)));
-		
-		DetailAST caseThreeAST = getAST("TestCaseThree.java");
-		assertEquals(693, Math.round(MethodLimitCheck.getVolume(caseThreeAST)));	
-		*/
-	}
-
-	/*
-	 * Combined in to the checkDiffictulty method.
-	 */
-	@Test
-	public void testDifficultyWithOperatorsAndOperands() throws Throwable 
-	{
-		/*
-		DetailAST caseOneAST = getAST("TestCaseOne.java");
-		assertEquals(4, Math.round(MethodLimitCheck.getDifficulty(caseOneAST)));
-		
-		DetailAST caseTwoAST = getAST("TestCaseTwo.java");
-		assertEquals(0, Math.round(MethodLimitCheck.getDifficulty(caseTwoAST)));
-		
-		DetailAST caseThreeAST = getAST("TestCaseThree.java");
-		assertEquals(41, Math.round(MethodLimitCheck.getDifficulty(caseThreeAST)));
-		*/
-	}
+	
 	/*************************************************************************/
 	
 	/*********************************MINH NGUYEN*****************************/
